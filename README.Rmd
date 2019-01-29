@@ -13,15 +13,15 @@ knitr::opts_chunk$set(
 
 # sandbox
 
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/packs4stics/sandbox?branch=master&svg=true)](https://ci.appveyor.com/project/packs4stics/sandbox)
-[![Travis build status](https://travis-ci.org/packs4stics/sandbox.svg?branch=master)](https://travis-ci.org/packs4stics/sandbox)
-[![Coverage status](https://codecov.io/gh/packs4stics/sandbox/branch/master/graph/badge.svg)](https://codecov.io/github/packs4stics/sandbox?branch=master)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/SticsRPacks/sandbox?branch=master&svg=true)](https://ci.appveyor.com/project/SticsRPacks/sandbox)
+[![Travis build status](https://travis-ci.org/SticsRPacks/sandbox.svg?branch=master)](https://travis-ci.org/SticsRPacks/sandbox)
+[![Coverage status](https://codecov.io/gh/SticsRPacks/sandbox/branch/master/graph/badge.svg)](https://codecov.io/github/SticsRPacks/sandbox?branch=master)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) -->
 
 ## Welcome !
 
-If you are a newcomer in the `packs4stics` community, this repository is for you. It was specifically created to help new people to learn the basis of all tools used in the project.
+If you are a newcomer in the `SticsRPacks` community, this repository is for you. It was specifically created to help new people to learn the basis of all tools used in the project.
 
 The first thing to learn is how to use GIT and GITHUB. 
 
@@ -313,7 +313,7 @@ usethis::use_appveyor()
 ```
 
 The first command creates a `.travis.yml` file in the project root, and the second one the `appveyor.yml`. These files are configuration files for each service. 
-Each command execution gives you a link that you can copy and paste in your `README.md` file such as on this README. This link will add a badge that indicates the status of the build on each service. For example here is the badge for TRAVIS-CI: [![Travis build status](https://travis-ci.org/packs4stics/sandbox.svg?branch=master)](https://travis-ci.org/packs4stics/sandbox). 
+Each command execution gives you a link that you can copy and paste in your `README.md` file such as on this README. This link will add a badge that indicates the status of the build on each service. For example here is the badge for TRAVIS-CI: [![Travis build status](https://travis-ci.org/SticsRPacks/sandbox.svg?branch=master)](https://travis-ci.org/SticsRPacks/sandbox). 
 
 If you have the rights, then you can go to the services to set up the CI as described below. 
 
@@ -356,7 +356,7 @@ after_success:
   - Rscript -e 'covr::codecov()'
 ```
 
-You can add the badge to your README, such as: [![Coverage status](https://codecov.io/gh/packs4stics/sandbox/branch/master/graph/badge.svg)](https://codecov.io/github/packs4stics/sandbox?branch=master).
+You can add the badge to your README, such as: [![Coverage status](https://codecov.io/gh/SticsRPacks/sandbox/branch/master/graph/badge.svg)](https://codecov.io/github/SticsRPacks/sandbox?branch=master).
 
 Finally, go to [codecov.io](https://codecov.io/), log in with your github account, and activate the repository.
 
