@@ -7,10 +7,11 @@ Authors@R:
            role = c("aut", "cre"),
            email = "remi.vezy@cirad.fr")
 Description: sandbox was created to help new people to learn the basis of all tools used in the SticsRPacks project.
-License: File license
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
     covr
+Roxygen: list(markdown = TRUE)
