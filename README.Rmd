@@ -35,6 +35,7 @@ You'll need some basis on GIT before training on this repository. A first readin
 There are also several tutorials on the internet for begginers:
 
 + [learngitbranching](https://learngitbranching.js.org/)
++ [Git Gud, web based simulator](https://nic-hartley.github.io/git-gud)
 + [Udacity free MOOC](https://eu.udacity.com/course/how-to-use-git-and-github--ud775#?autoenroll=true)
 + [Github tutorial](https://lab.github.com/)
 + [openclassrooms course](https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github) (in french only).
