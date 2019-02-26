@@ -23,6 +23,7 @@ GIT is a software designed for efficient version control. It helps you and your 
 You'll need some basis on GIT before training on this repository. A first reading that is well adapted to our example is [the book of Hadley Wickham](http://r-pkgs.had.co.nz/git.html). It explains well the basis of GIT in conjunction with R. There are also several tutorials on the internet for begginers:
 
 -   [learngitbranching](https://learngitbranching.js.org/)
+-   [Git Gud, web based simulator](https://nic-hartley.github.io/git-gud)
 -   [Udacity free MOOC](https://eu.udacity.com/course/how-to-use-git-and-github--ud775#?autoenroll=true)
 -   [Github tutorial](https://lab.github.com/)
 -   [openclassrooms course](https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github) (in french only).
