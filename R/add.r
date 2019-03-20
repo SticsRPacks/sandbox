@@ -11,6 +11,5 @@
 #' add_x(2)
 #'
 add_x= function(x){
-  if(!is.numeric(x)){stop("x must be numeric")}
-  invisible(x+x)
+  x+x
 }

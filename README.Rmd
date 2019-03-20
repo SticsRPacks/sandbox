@@ -393,6 +393,15 @@ Here is an example of a conflict in two steps:
 
 This is an example made on the local repository, but a pull request would yield the same result.
 
+Here is an example with a pull request from a branch: 
+
+![Resolve pull request conflict](www/confilcts/3-pull_request_conflict.gif)
+
+As you can see, this pull request cannot be automatically merged, so you have to resolve the conflicts from your computer, or you can even use the web editor if you prefer:
+
+![Merge pull request after resolved conflict](www/confilcts/4-pull_request_conflict_merge.gif)
+
+
 ## Install
 
 New users can now install your package directly from the Github repository using this command line:
