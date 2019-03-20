@@ -545,12 +545,44 @@ Note that the previous step can be made all at once by the reviewer
 
 ### Update
 
-Once the merge done, all users can update their local repository with
+Once the merge is done, all users can update their local repository with
 the new code. If the branch was deleted from Github.com, it will still
 remain on the local copy of the user, so you will have to delete it
 manually using Github desktop:
 
 ![Update repository](www/new_branch/5.6-update_repo.gif)
+
+### Conflicts
+
+A pull request may modify some code that was also modified by another
+user that pulled his changes before you in the `master` branch. In that
+case, GIT cannot know which code is the right one, or if there is a need
+of more code to integrate both changes, so a manual choice has to be
+made.
+
+Here is an example of a conflict in two steps:
+
+  - Making different modifications on two different branched: ![Merge
+    conflict](www/confilcts/1-create_merge_conflict.gif)
+
+  - Trying to merge the branches and resolving the conflicts using Atom:
+
+![Resolve conflict](www/confilcts/2-merge_conflict.gif)
+
+This is an example made on the local repository, but a pull request
+would yield the same result.
+
+Here is an example with a pull request from a branch:
+
+![Resolve pull request
+conflict](www/confilcts/3-pull_request_conflict.gif)
+
+As you can see, this pull request cannot be automatically merged, so you
+have to resolve the conflicts from your computer, or you can even use
+the web editor if you prefer:
+
+![Merge pull request after resolved
+conflict](www/confilcts/4-pull_request_conflict_merge.gif)
 
 ## Install
 
@@ -560,50 +592,8 @@ repository using this command line:
 ``` r
 # install.packages("remotes")
 remotes::install_github("SticsRPacks/sandbox")
-#> Downloading GitHub repo SticsRPacks/sandbox@master
-#>   
-  
-  
-   checking for file 'C:\Users\vezy\AppData\Local\Temp\Rtmpg32zHy\remotesa478408e2143\SticsRPacks-sandbox-58f0b3a/DESCRIPTION' ...
-  
-   checking for file 'C:\Users\vezy\AppData\Local\Temp\Rtmpg32zHy\remotesa478408e2143\SticsRPacks-sandbox-58f0b3a/DESCRIPTION' ... 
-  
-v  checking for file 'C:\Users\vezy\AppData\Local\Temp\Rtmpg32zHy\remotesa478408e2143\SticsRPacks-sandbox-58f0b3a/DESCRIPTION'
-#> 
-  
-  
-  
--  preparing 'sandbox':
-#>    checking DESCRIPTION meta-information ...
-  
-   checking DESCRIPTION meta-information ... 
-  
-v  checking DESCRIPTION meta-information
-#> 
-  
-  
-  
--  checking for LF line-endings in source and make files and shell scripts
-#> 
-  
-  
-  
--  checking for empty or unneeded directories
-#> 
-  
-  
-  
--  building 'sandbox_0.0.0.9000.tar.gz'
-#> 
-  
-   
-#> 
-#> Installing package into 'D:/Mes Donnees/R/win-library/3.5'
-#> (as 'lib' is unspecified)
 # Or using devtools if already installed:
 devtools::install_github("SticsRPacks/sandbox")
-#> Skipping install of 'sandbox' from a github remote, the SHA1 (58f0b3a7) has not changed since last install.
-#>   Use `force = TRUE` to force installation
 ```
 
 ![Install package](www/9-install_from_gitub.gif)

@@ -310,7 +310,7 @@ To make modifications to the code, you can create your own branch using Github d
 
 ### Make your changes 
 
-You can then freely work on your code without making any changes to the master branch. For instance, we can add some tests inside the `add_x` function to test if the input `x` is numeric before computing the addition:  
+You can then freely work on your code without making any changes to the master branch. For instance, we can add some tests inside the `add_x` function to test if the input `x` is numeric before computing the addition: 
   
 ![Add code](www/new_branch/2-add_tests_add_x.gif)
   
@@ -372,7 +372,7 @@ Note that the previous step can be made all at once by the reviewer (accept and 
 
 ### Update 
 
-Once the merge done, all users can update their local repository with the new code. If the branch was deleted from Github.com, it will still remain on the local copy of the user, so you will have to delete it manually using Github desktop:
+Once the merge is done, all users can update their local repository with the new code. If the branch was deleted from Github.com, it will still remain on the local copy of the user, so you will have to delete it manually using Github desktop:
 
 ![Update repository](www/new_branch/5.6-update_repo.gif)
 
@@ -406,7 +406,7 @@ As you can see, this pull request cannot be automatically merged, so you have to
 
 New users can now install your package directly from the Github repository using this command line:
 
-```{r}
+```{r, eval=FALSE}
 # install.packages("remotes")
 remotes::install_github("SticsRPacks/sandbox")
 # Or using devtools if already installed:
