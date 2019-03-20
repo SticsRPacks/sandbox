@@ -22,7 +22,7 @@ If you are a newcomer in the `SticsRPacks` community, this repository is
 for you. It was specifically created to help new people to learn the
 basis of all tools used in the project.
 
-The first thing to learn is how to use GIT and GITHUB.
+The first thing to learn for package development is how to use GIT and GITHUB.
 
 ## GIT and GITHUB
 
