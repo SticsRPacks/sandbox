@@ -22,7 +22,7 @@ If you are a newcomer in the `SticsRPacks` community, this repository is
 for you. It was specifically created to help new people to learn the
 basis of all tools used in the project.
 
-The first thing to learn for package development is how to use GIT and GITHUB.
+The first thing to learn in this tutorial is how to use GIT and GITHUB.
 
 ## GIT and GITHUB
 
@@ -207,7 +207,7 @@ div_x= function(x,y){
 }
 ```
 
-![Open RStudio Project](www/2-new_function.gif)
+![New function](www/2-new_function.gif)
 
 This function divides x by y and return the result.
 
@@ -217,7 +217,7 @@ function, click on the magic wand just above your script and choose
 a dummy Roxygen documentation above your function using the arguments of
 your function.
 
-![Open RStudio Project](www/3-add_roxygen.gif)
+![Add roxygen](www/3-add_roxygen.gif)
 
 Your function should look like this now:
 
@@ -259,7 +259,7 @@ div_x= function(x,y){
 Then re-build your documentation (`ctrl+shift+D`), and re-build your
 package (`ctrl+shift+B`).
 
-![Open RStudio Project](www/4-document_and_build.gif)
+![Document and build](www/4-document_and_build.gif)
 
 You should have access to your own function help page:
 
@@ -325,7 +325,7 @@ run this command:
 usethis::use_test("div_x")
 ```
 
-![Open RStudio Project](www/7-add_tests.gif)
+![Add tests](www/7-add_tests.gif)
 
 If you add tests on your package for the first time, the
 `usethis::use_test()` command will create all the infrastructure you
@@ -369,7 +369,7 @@ tests will all be executed, and a report will appear on the `Build` tab
 at the end, showing which tests were successfull, and which failed or
 returned warnings.
 
-![Open RStudio Project](www/7-run_tests.gif)
+![Run tests](www/7-run_tests.gif)
 
 You should add different tests for each of your functions, to check if
 they work correctly, and if they handle errors properly.
@@ -388,7 +388,7 @@ can download a functionning package. To start a CRAN check, go to the
 simply use `ctrl+shift+E`. The package will be checked, and a report
 will be given at the end.
 
-![Open RStudio Project](www/8-run_CRAN_checks.gif)
+![CRAN checks](www/8-run_CRAN_checks.gif)
 
 ## Make a website
 
@@ -404,7 +404,7 @@ update the package:
 pkgdown::build_site()
 ```
 
-![Open RStudio Project](www/5-build_site.gif)
+![Build site](www/5-build_site.gif)
 
 When first called, the function creates a new folder called `docs` where
 it puts all the `html` files for the website. When pushed to github.com,
@@ -419,7 +419,41 @@ The website will be at an address of the form
 for example our project is rendered at this adress:
 <https://sticsrpacks.github.io/sandbox/>
 
-## Share your changes
+## Share your changes using GIT/GITHUB
+
+### Branches
+
+For the sake of simplicity, we only used the `master` branch of the
+repository in the previous example. The downside of using only this
+branch is that each time a user will change the code while you change it
+also, it will override the others code. To avoid this behavior, GIT has
+a nice feature called branches. A branch can be thought as a copy of
+your project at a given time, that have a parallel history to the
+`master` branch. In other words, it allows you to develop some code
+while not bothering the others.
+
+To ensure that developers use branches, all the `master` branches of the
+SticsRPacks repositories will be protected against commits, and must
+have at least one reviewer. See [this
+page](https://help.github.com/en/articles/configuring-protected-branches)
+for more details on how to set those rules.
+
+To make modifications to the code, you can create your own branch using
+Github desktop. Usually, we name a branch after the feature it is
+supposed to add. You can make a new branch for each independent feature
+you want to use. To create a new branch, simply follow the steps showed
+below:
+
+![New branch](www/new_branch/1-new_branch.gif)
+
+### Make your changes
+
+You can then freely work on your code without making any changes to the
+master branch. For instance, we can add some tests inside the `add_x`
+function to test if the input `x` is numeric before computing the
+addition:
+
+![Add code](www/new_branch/2-add_tests_add_x.gif)
 
 ### Commit
 
@@ -440,6 +474,8 @@ left window next to your account image, where it is written `Summary
 changes. Then press `Commit to master`. Your changes are commited to the
 master branch and saved on your computer.
 
+![Commit](www/new_branch/3-commit_add_tests_add_x.gif)
+
 ### Push
 
 Whenever your work is done, or you go for lunch, you should push all
@@ -447,7 +483,74 @@ your commits to github.com. To do so, just press the `Push origin`
 button in the center or in the upper window. Github desktop will send
 the changes to github.com, and they should appear in the repository.
 
-![Open RStudio Project](www/6-commit_and_puch.gif)
+If you just created your branch, you have to publish it Github.com
+before:
+
+![Publish branch](www/new_branch/4-publish_branch.gif)
+
+### Pull request
+
+Whenever you finished the modifications you wanted to do with your
+branch, you can make a pull request. This is a way of asking other
+contributors for their approval of your changes before merging your code
+to the `master` branch:
+
+![](www/new_branch/5.1-pull_request.gif)
+
+You’ll have several steps to complete after:
+
+  - give a general title to your pull request, for example here it is
+    named after the last commit: “Test if x is numeric in add\_x”  
+  - add a little description of the changes
+  - check if the merge is automatic or not (is there any conflicts ?)
+  - wait for the automatic tests to run, and if they are successfull:
+  - assign a reviewer if possible
+
+![Ask review](www/new_branch/5.2-ask_reviewer.gif)
+
+  - and finally create the pull request.
+
+### Review
+
+As a reviewer, you’ll have to open the pull request (in the Pull
+requests tab), and review the code in the “Files changed” sub-tab:
+
+![Review](www/new_branch/5.3-review.gif)
+
+If there are some changes needed before merging the code to the `master`
+branch, you can leave a comment (and even propose some code) right where
+the changes are needed.
+
+Then, the person that did pull the request will have to integrate those
+proposed changes into its own branch, commit the changes, and update the
+pull request.
+
+Then, the reviewer will review the code again, and can finally accept
+the pull request: ![Accept pull request](www/new_branch/5.4-accept.gif)
+When the pull request is accepted, it can finally be merged into the
+`master` branch:
+
+![Merge](www/new_branch/5.5-merge.gif)
+
+This step will add all the commits from the branch to the `master`
+branch. A cleaner option is to use the `Squash and merge` option, which
+will combine all commits from the branch into one commit only. This
+option may be cleaner to avoid too many unnecessary commits in the
+master branch.  
+You can optionally delete the branch after merging it to make a cleaner
+repository.
+
+Note that the previous step can be made all at once by the reviewer
+(accept and merge).
+
+### Update
+
+Once the merge done, all users can update their local repository with
+the new code. If the branch was deleted from Github.com, it will still
+remain on the local copy of the user, so you will have to delete it
+manually using Github desktop:
+
+![Update repository](www/new_branch/5.6-update_repo.gif)
 
 ## Install
 
@@ -457,15 +560,53 @@ repository using this command line:
 ``` r
 # install.packages("remotes")
 remotes::install_github("SticsRPacks/sandbox")
-#> Skipping install of 'sandbox' from a github remote, the SHA1 (b330dfae) has not changed since last install.
-#>   Use `force = TRUE` to force installation
+#> Downloading GitHub repo SticsRPacks/sandbox@master
+#>   
+  
+  
+   checking for file 'C:\Users\vezy\AppData\Local\Temp\Rtmpg32zHy\remotesa478408e2143\SticsRPacks-sandbox-58f0b3a/DESCRIPTION' ...
+  
+   checking for file 'C:\Users\vezy\AppData\Local\Temp\Rtmpg32zHy\remotesa478408e2143\SticsRPacks-sandbox-58f0b3a/DESCRIPTION' ... 
+  
+v  checking for file 'C:\Users\vezy\AppData\Local\Temp\Rtmpg32zHy\remotesa478408e2143\SticsRPacks-sandbox-58f0b3a/DESCRIPTION'
+#> 
+  
+  
+  
+-  preparing 'sandbox':
+#>    checking DESCRIPTION meta-information ...
+  
+   checking DESCRIPTION meta-information ... 
+  
+v  checking DESCRIPTION meta-information
+#> 
+  
+  
+  
+-  checking for LF line-endings in source and make files and shell scripts
+#> 
+  
+  
+  
+-  checking for empty or unneeded directories
+#> 
+  
+  
+  
+-  building 'sandbox_0.0.0.9000.tar.gz'
+#> 
+  
+   
+#> 
+#> Installing package into 'D:/Mes Donnees/R/win-library/3.5'
+#> (as 'lib' is unspecified)
 # Or using devtools if already installed:
 devtools::install_github("SticsRPacks/sandbox")
-#> Skipping install of 'sandbox' from a github remote, the SHA1 (b330dfae) has not changed since last install.
+#> Skipping install of 'sandbox' from a github remote, the SHA1 (58f0b3a7) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 ```
 
-![Open RStudio Project](www/9-install_from_gitub.gif)
+![Install package](www/9-install_from_gitub.gif)
 
 ## Badges, CI and code coverage
 
