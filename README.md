@@ -35,7 +35,7 @@ A good way to start is also to read the [GIT book](https://git-scm.com/book/en/v
 The next step after learning GIT is to use this example. To do so, follow these simple steps:
 
 1.  Download [GIT](https://git-scm.com/) and install it.
-2.  Download and install [Github desktop](https://desktop.github.com/), for Windows or Mac, an app that will help you use GIT. For linux, you can install for example [GitAhead](https://gitahead.github.io/gitahead.com).
+2.  Download and install [Github desktop](https://desktop.github.com/), for Windows or Mac, an app that will help you use GIT. For linux, follow [this link](https://github.com/shiftkey/desktop/releases), or install [GitAhead](https://gitahead.github.io/gitahead.com).
 3.  Create an account on [Github](https://github.com/).
 4.  Open Github desktop, and set your personal informations to connect to your `Github.com` account.
 5.  On Github desktop, go to `File`, clone repository, or press `ctrl+shift+O`. And then click on `URL`, and enter this address:
