@@ -45,6 +45,21 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/make-a-package.html">Make an R package</a>
+    </li>
+    <li>
+      <a href="articles/use-git-and-github.html">Use Git and Github</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
 </div>
@@ -67,7 +82,7 @@
 <h2 class="hasAnchor">
 <a href="#welcome" class="anchor"></a>Welcome !</h2>
 <p>If you are a newcomer in the <code>SticsRPacks</code> community, this repository is for you. It was specifically created to help new people to learn the basis of all tools used in the project.</p>
-<p>The first thing to learn is how to use GIT and GITHUB.</p>
+<p>The first thing to learn in this tutorial is how to use GIT and GITHUB.</p>
 </div>
 <div id="git-and-github" class="section level2">
 <h2 class="hasAnchor">
@@ -161,11 +176,16 @@
 <div id="open-the-rstudio-project" class="section level3">
 <h3 class="hasAnchor">
 <a href="#open-the-rstudio-project" class="anchor"></a>Open the Rstudio project</h3>
-<p>Double-click on the <code>sandbox.Rproj</code> file. It will open the Rstudio project. From the <code>Files</code> window, open the R folder. You will find here all the R scripts used for the package. It is highly encouraged to put each function in a separate file, unless they are very short and can be grouped under a common file with a title that describes well their purpose.</p>
+<p>Double-click on the <code>sandbox.Rproj</code> file. It will open the Rstudio project. The <code>.Rproj</code> file contains informations about the project for RStudio (<em>e.g.</em> it is an R package, it uses devtools, etc…).</p>
+<div class="figure">
+<img src="www/1-open_project.gif" alt="Open RStudio Project"><p class="caption">Open RStudio Project</p>
+</div>
+<p>From the <code>Files</code> window, open the R folder. You will find here all the R scripts used for the package.</p>
 </div>
 <div id="simple-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#simple-function" class="anchor"></a>Simple function</h3>
+<p>It is highly encouraged to put each function in a separate file, unless they are very short and can be grouped under a common file with a title that describes well their purpose.</p>
 <p>Click on the <a href="R/add.r"><code>add.r</code></a> file. This file contains one function: <code><a href="reference/add_x.html">add_x()</a></code>. This function simply adds the input to itself. You can see that it is preceded by some text formatted as follows: <code>#' Text</code>. This text is a Roxygen documentation. It is formated on a special way that helps R generate the package documentation.</p>
 </div>
 <div id="documentation" class="section level3">
@@ -188,80 +208,78 @@
 <div id="add-a-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-a-function" class="anchor"></a>Add a function</h3>
-<p>Add the following code to the R script:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">add_xy=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb5-2" title="2">  x<span class="op">+</span>y</a>
+<p>Create a new R script file, add the following code and save it:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb5-2" title="2">  x<span class="op">/</span>y</a>
 <a class="sourceLine" id="cb5-3" title="3">}</a></code></pre></div>
-<p>This function adds x to y and return the result. Your R script should look like this now:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">#' Add once</span></a>
+<div class="figure">
+<img src="www/2-new_function.gif" alt="New function"><p class="caption">New function</p>
+</div>
+<p>This function divides x by y and return the result.</p>
+<p>To add some documentation to your function, place your cursor into the function, click on the magic wand just above your script and choose <code>Insert Roxygen Skeleton</code>, or press <code>ctrl+shift+alt+R</code>. This will create a dummy Roxygen documentation above your function using the arguments of your function.</p>
+<div class="figure">
+<img src="www/3-add_roxygen.gif" alt="Add roxygen"><p class="caption">Add roxygen</p>
+</div>
+<p>Your function should look like this now:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">#' Title</span></a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="co">#' @description Adds the input to itself</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="co">#' @param x Double or Integer</span></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb6-7" title="7"><span class="co">#' @return x+x</span></a>
-<a class="sourceLine" id="cb6-8" title="8"><span class="co">#' @export</span></a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb6-10" title="10"><span class="co">#' @examples</span></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="co">#' add_x(2)</span></a>
-<a class="sourceLine" id="cb6-12" title="12"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb6-13" title="13">add_x=<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb6-14" title="14">  x<span class="op">+</span>x</a>
-<a class="sourceLine" id="cb6-15" title="15">}</a>
-<a class="sourceLine" id="cb6-16" title="16"></a>
-<a class="sourceLine" id="cb6-17" title="17">add_xy=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb6-18" title="18">  x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb6-19" title="19">}</a></code></pre></div>
-<p>To add the documentation to your function, place your cursor into the function, click on the magic wand just above your script and choose <code>Insert Roxygen Skeleton</code>, or press <code>ctrl+shift+alt+R</code>. This will create a dummy Roxygen documentation above your function using the arguments of your function. Your function should look like this now:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">#' Title</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co">#' @param x </span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">#' @param y </span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co">#' @return</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co">#' @export</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">#' @examples</span></a>
+<a class="sourceLine" id="cb6-10" title="10">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb6-11" title="11">  x<span class="op">/</span>y</a>
+<a class="sourceLine" id="cb6-12" title="12">}</a></code></pre></div>
+<p>Fill the documentation, and add some new keywords such as a description:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">#' Divide</span></a>
 <a class="sourceLine" id="cb7-2" title="2"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#' @param x </span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#' @param y </span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#' @return</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#' @export</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co">#' @examples</span></a>
-<a class="sourceLine" id="cb7-10" title="10">add_xy=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb7-11" title="11">  x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb7-12" title="12">}</a></code></pre></div>
-<p>Fill the documentation such as:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">#' Add x to y</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#' @param x Double or integer</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#' @param y Double or integer</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#' @return x+y</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#' @export</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#' @examples</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#' add_xy(2,3)</span></a>
-<a class="sourceLine" id="cb8-11" title="11">add_xy=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb8-12" title="12">  x<span class="op">+</span>y</a>
-<a class="sourceLine" id="cb8-13" title="13">}</a></code></pre></div>
-<p>Then re-build your documentation (<code>ctrl+shift+D</code>), and re-build your package (<code>ctrl+shift+B</code>). You should have access to your own function help page:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">?add_xy</a></code></pre></div>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">#' @description Divide x by y</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">#' @param x The numerator</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">#' @param y The denominator</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">#' @return x/y</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co">#' @export</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="co">#' @examples</span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="co">#' div_x(1,2)</span></a>
+<a class="sourceLine" id="cb7-13" title="13">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb7-14" title="14">  x<span class="op">/</span>y</a>
+<a class="sourceLine" id="cb7-15" title="15">}</a></code></pre></div>
+<p>Then re-build your documentation (<code>ctrl+shift+D</code>), and re-build your package (<code>ctrl+shift+B</code>).</p>
+<div class="figure">
+<img src="www/4-document_and_build.gif" alt="Document and build"><p class="caption">Document and build</p>
+</div>
+<p>You should have access to your own function help page:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">?div_x</a></code></pre></div>
 </div>
 </div>
 <div id="test-your-functions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#test-your-functions" class="anchor"></a>Test your functions</h2>
-<p>After writing a new function or modifying one, it is important to test it. This step is mandatory, because some other functions may call this function you wrote, and it becomes more and more difficult to know where bugs are located when none of the functions were thoroughly tested. There are two steps to test a function. The first one is to test it by yourself when designing it, and the other one is by adding automatic tests.</p>
+<p>After writing a new function or modifying one, it is important to test it. This step is mandatory, because some other functions may call this very function you just wrote, and it becomes more and more difficult to know where bugs are located when none of the functions were thoroughly tested. There are two steps to test a function. The first one is to test it by yourself when designing it, and the other one is by adding automatic tests.</p>
 <div id="manually" class="section level3">
 <h3 class="hasAnchor">
 <a href="#manually" class="anchor"></a>Manually</h3>
-<p>When coding a function, you should always test if each line of code in your function is returning the expected result, and if the function returns the correct output after execution. To do so, you can create a separate Rstudio project where you will test your package: go to <code>File</code>&gt;<code>New Project</code>&gt;<code>New Directory</code>&gt;<code>New Project</code>, type your project name and choose where it will be located on your computer. The project name is usually taken as the R package name followed by “test”, such as <code>SticsOnR_test</code>. This step is not mandatory but strongly advised.</p>
+<p>When coding a function, you should always test if each line of code in your function is returning the expected result, and if the function returns the correct output after execution.<br>
+It is good practice to maintain your R package as light as possible by keeping the data outside of it whenever possible. Creating an independent R project for tests helps you to keep the external data or executables and the created outputs outside of the package project. To do so, you can create a separate Rstudio project where you will test your package: go to <code>File</code>&gt;<code>New Project</code>&gt;<code>New Directory</code>&gt;<code>New Project</code>, type your project name and choose where it will be located on your computer. The project name is usually taken as the R package name followed by “test”, such as <code>SticsOnR_test</code>. This step is not mandatory but strongly advised.</p>
 <p>After creating the new project, add a new R script (<code>ctrl+shift+N</code>), load your R package such as:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(SticsOnR)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(SticsOnR)</a></code></pre></div>
 <p>And test your function by giving different inputs and checking the function outputs.</p>
 </div>
 <div id="automatically" class="section level3">
 <h3 class="hasAnchor">
 <a href="#automatically" class="anchor"></a>Automatically</h3>
-<p>Manual tests are a good first step to evaluate a function, but users tend to test their functions once only, and to skip the tests when making a small change. But this methodology can make the code break for everybody, which is not desirable.</p>
-<p>Here enters the automatic tests, or unit tests. These tests are written once, and executed each time the code of the package is pushed to <code>github.com</code>, or every time the user needs to. These tests are implemented by using the <code>testthat</code> package. All documentation is available on the <a href="https://testthat.r-lib.org/">package website</a>.</p>
+<p>Manual tests are a good first step to evaluate a function, but developers tend to test their functions once only, and to skip the tests when making a small change. This methodology can make the code break for everybody when something is changed but not tested, which is not desirable.</p>
+<p>To avoid these difficulties, it is strongly advised to use automatic tests, also called unit tests. These tests are written once, and executed each time the code of the package is pushed to <code>github.com</code>, or every time the developer needs to. These tests are implemented by using the <code>testthat</code> package. All documentation is available on the <a href="https://testthat.r-lib.org/">package website</a>.</p>
 <p>To add unit tests to our example function (or to a set of functions), run this command:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_testthat">use_test</a></span>(<span class="st">"add"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_testthat">use_test</a></span>(<span class="st">"div_x"</span>)</a></code></pre></div>
+<div class="figure">
+<img src="www/7-add_tests.gif" alt="Add tests"><p class="caption">Add tests</p>
+</div>
 <p>If you add tests on your package for the first time, the <code><a href="https://www.rdocumentation.org/packages/usethis/topics/use_testthat">usethis::use_test()</a></code> command will create all the infrastructure you need, if not, it will just create a new test script to your tests.</p>
 <p>Now a new folder appeared in our project: <code>tests</code>, which contains two things:</p>
 <ul>
@@ -269,18 +287,21 @@
 <li><p>An R script called <code>testthat.R</code>. This script will call all tests in the R scripts located in <code>testthat</code>. Do not mind this script, you will probably never have to modify it.</p></li>
 </ul>
 <p>If you executed the previous command, you should have a unit test script called <code>test-add.R</code> in this directory with the following code:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">context</span>(<span class="st">"test-add"</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="kw">test_that</span>(<span class="st">"multiplication works"</span>, {</a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="kw">expect_equal</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb11-5" title="5">})</a></code></pre></div>
+<p>This test is an example that tests if <code>2 * 2</code> is equal to <code>4</code>. Change the code to the following to test our function:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">context</span>(<span class="st">"test-add"</span>)</a>
 <a class="sourceLine" id="cb12-2" title="2"></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="kw">test_that</span>(<span class="st">"multiplication works"</span>, {</a>
-<a class="sourceLine" id="cb12-4" title="4">  <span class="kw">expect_equal</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="kw">test_that</span>(<span class="st">"add_x returns right output"</span>, {</a>
+<a class="sourceLine" id="cb12-4" title="4">  <span class="kw">expect_equal</span>(<span class="kw">div_x</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="fl">0.5</span>)</a>
 <a class="sourceLine" id="cb12-5" title="5">})</a></code></pre></div>
-<p>This test is an example that tests if <code>2 * 2</code> is equal to <code>4</code>. Change the code to the following to test our function:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">context</span>(<span class="st">"test-add"</span>)</a>
-<a class="sourceLine" id="cb13-2" title="2"></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="kw">test_that</span>(<span class="st">"add_x returns right output"</span>, {</a>
-<a class="sourceLine" id="cb13-4" title="4">  <span class="kw">expect_equal</span>(<span class="kw"><a href="reference/add_x.html">add_x</a></span>(<span class="dv">1</span>), <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb13-5" title="5">})</a></code></pre></div>
-<p>This code tests that <code><a href="reference/add_x.html">add_x(1)</a></code> returns <code>2</code>. To run the test, go to the <code>Build</code> tab, and choose <code>Test Package</code>, or press <code>ctrl+shift+T</code>. The tests will all be executed, and a report will appear on the <code>Build</code> tab at the end, showing which tests were successfull, and which failed or returned warnings.</p>
+<p>This code tests that <code>div_x(1,2)</code> returns <code>0.5</code>. To run the test, go to the <code>Build</code> tab, and choose <code>Test Package</code>, or press <code>ctrl+shift+T</code>. The tests will all be executed, and a report will appear on the <code>Build</code> tab at the end, showing which tests were successfull, and which failed or returned warnings.</p>
+<div class="figure">
+<img src="www/7-run_tests.gif" alt="Run tests"><p class="caption">Run tests</p>
+</div>
 <p>You should add different tests for each of your functions, to check if they work correctly, and if they handle errors properly.</p>
 <p>More details about unit tests with <code>testthat</code> are given <a href="http://r-pkgs.had.co.nz/tests.html">here</a>.</p>
 </div>
@@ -288,21 +309,9 @@
 <h3 class="hasAnchor">
 <a href="#cran-tests" class="anchor"></a>CRAN tests</h3>
 <p>The <code>devtools</code> package that you installed previously adds also the tests that CRAN do on all packages. These tests consists on checking that all mandatory files are present, that functions are well documented, etc… It is very important to check the package regularly for errors so the users can download a functionning package. To start a CRAN check, go to the <code>Build</code> tab, press the <code>More</code> button, and choose <code>Check Package</code>, or simply use <code>ctrl+shift+E</code>. The package will be checked, and a report will be given at the end.</p>
+<div class="figure">
+<img src="www/8-run_CRAN_checks.gif" alt="CRAN checks"><p class="caption">CRAN checks</p>
 </div>
-</div>
-<div id="share-your-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#share-your-changes" class="anchor"></a>Share your changes</h2>
-<div id="commit" class="section level3">
-<h3 class="hasAnchor">
-<a href="#commit" class="anchor"></a>Commit</h3>
-<p>Each time you modify the package, you should commit your changes to GIT. It is good practice to commit whenever a little step has been reached so the commit message is short enough but still explains everything you did. This methodology make more commits, but is still preferred because it is easier to find changes in the history earlier. So do not hesitates to split your work into little commits.</p>
-<p>To commit your changes, open <code>Github desktop</code> and choose the repository. The files that were modified in the repository appear in the left-most window, and the associated code that was added or removed should appear in the window on the right. The code in green was added, and the code in red was removed. To commit those changes, enter a commit message in the left window next to your account image, where it is written <code><a href="https://www.rdocumentation.org/packages/base/topics/groupGeneric">Summary (required)</a></code>. The message should be concise but should describe all the changes. Then press <code>Commit to master</code>. Your changes are commited to the master branch and saved on your computer.</p>
-</div>
-<div id="push" class="section level3">
-<h3 class="hasAnchor">
-<a href="#push" class="anchor"></a>Push</h3>
-<p>Whenever your work is done, or you go for lunch, you should push all your commits to github.com. To do so, just press the <code>Push origin</code> button in the center or in the upper window. Github desktop will send the changes to github.com, and they should appear in the repository.</p>
 </div>
 </div>
 <div id="make-a-website" class="section level2">
@@ -310,10 +319,133 @@
 <a href="#make-a-website" class="anchor"></a>Make a website</h2>
 <p>A website can be automatically generated from the helpfiles of the R package, the vignettes and the <code>README.md</code> file by using the <code>pkgdown</code> package. For example the auto-generated website for the <code>SticsOnR</code> package is available <a href="https://sticsrpacks.github.io/SticsOnR/">here</a>.</p>
 <p>To set up the website, simply execute the following code each time you update the package:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">pkgdown<span class="op">::</span><span class="kw"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">pkgdown<span class="op">::</span><span class="kw"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span>()</a></code></pre></div>
+<div class="figure">
+<img src="www/5-build_site.gif" alt="Build site"><p class="caption">Build site</p>
+</div>
 <p>When first called, the function creates a new folder called <code>docs</code> where it puts all the <code>html</code> files for the website. When pushed to github.com, a website is created from these files if you authorized github pages.</p>
 <p>To authorize github pages, go to the project page on the repository, then go to <code>settings</code>&gt;<code>Github Pages</code>&gt;<code>Source</code> and then choose <code>master branch /docs folder</code>.</p>
 <p>The website will be at an address of the form (<a href="https://sticsrpacks.github.io/%7Bpackagename%7D/" class="uri">https://sticsrpacks.github.io/{packagename}/</a>), for example our project is rendered at this adress: <a href="https://sticsrpacks.github.io/sandbox/" class="uri">https://sticsrpacks.github.io/sandbox/</a></p>
+</div>
+<div id="share-your-changes-using-gitgithub" class="section level2">
+<h2 class="hasAnchor">
+<a href="#share-your-changes-using-gitgithub" class="anchor"></a>Share your changes using GIT/GITHUB</h2>
+<div id="branches" class="section level3">
+<h3 class="hasAnchor">
+<a href="#branches" class="anchor"></a>Branches</h3>
+<p>For the sake of simplicity, we only used the <code>master</code> branch of the repository in the previous example. The downside of using only this branch is that each time a user will change the code while you change it also, it will override the others code. To avoid this behavior, GIT has a nice feature called branches. A branch can be thought as a copy of your project at a given time, that have a parallel history to the <code>master</code> branch. In other words, it allows you to develop some code while not bothering the others.</p>
+<p>To ensure that developers use branches, all the <code>master</code> branches of the SticsRPacks repositories will be protected against commits, and must have at least one reviewer. See <a href="https://help.github.com/en/articles/configuring-protected-branches">this page</a> for more details on how to set those rules.</p>
+<p>To make modifications to the code, you can create your own branch using Github desktop. Usually, we name a branch after the feature it is supposed to add. You can make a new branch for each independent feature you want to use. To create a new branch, simply follow the steps showed below:</p>
+<div class="figure">
+<img src="www/new_branch/1-new_branch.gif" alt="New branch"><p class="caption">New branch</p>
+</div>
+</div>
+<div id="make-your-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#make-your-changes" class="anchor"></a>Make your changes</h3>
+<p>You can then freely work on your code without making any changes to the master branch. For instance, we can add some tests inside the <code>add_x</code> function to test if the input <code>x</code> is numeric before computing the addition:</p>
+<div class="figure">
+<img src="www/new_branch/2-add_tests_add_x.gif" alt="Add code"><p class="caption">Add code</p>
+</div>
+</div>
+<div id="commit" class="section level3">
+<h3 class="hasAnchor">
+<a href="#commit" class="anchor"></a>Commit</h3>
+<p>Each time you modify the package, you should commit your changes to GIT. It is good practice to commit whenever a little step has been reached so the commit message is short enough but still explains everything you did. This methodology make more commits, but is still preferred because it is easier to find changes in the history earlier. So do not hesitates to split your work into little commits.</p>
+<p>To commit your changes, open <code>Github desktop</code> and choose the repository. The files that were modified in the repository appear in the left-most window, and the associated code that was added or removed should appear in the window on the right. The code in green was added, and the code in red was removed. To commit those changes, enter a commit message in the left window next to your account image, where it is written <code><a href="https://www.rdocumentation.org/packages/base/topics/groupGeneric">Summary (required)</a></code>. The message should be concise but should describe all the changes. Then press <code>Commit to master</code>. Your changes are commited to the master branch and saved on your computer.</p>
+<div class="figure">
+<img src="www/new_branch/3-commit_add_tests_add_x.gif" alt="Commit"><p class="caption">Commit</p>
+</div>
+</div>
+<div id="push" class="section level3">
+<h3 class="hasAnchor">
+<a href="#push" class="anchor"></a>Push</h3>
+<p>Whenever your work is done, or you go for lunch, you should push all your commits to github.com. To do so, just press the <code>Push origin</code> button in the center or in the upper window. Github desktop will send the changes to github.com, and they should appear in the repository.</p>
+<p>If you just created your branch, you have to publish it Github.com before:</p>
+<div class="figure">
+<img src="www/new_branch/4-publish_branch.gif" alt="Publish branch"><p class="caption">Publish branch</p>
+</div>
+</div>
+<div id="pull-request" class="section level3">
+<h3 class="hasAnchor">
+<a href="#pull-request" class="anchor"></a>Pull request</h3>
+<p>Whenever you finished the modifications you wanted to do with your branch, you can make a pull request. This is a way of asking other contributors for their approval of your changes before merging your code to the <code>master</code> branch:</p>
+<p><img src="www/new_branch/5.1-pull_request.gif"></p>
+<p>You’ll have several steps to complete after:</p>
+<ul>
+<li>give a general title to your pull request, for example here it is named after the last commit: “Test if x is numeric in add_x”<br>
+</li>
+<li>add a little description of the changes</li>
+<li>check if the merge is automatic or not (is there any conflicts ?)</li>
+<li>wait for the automatic tests to run, and if they are successfull:</li>
+<li>assign a reviewer if possible</li>
+</ul>
+<div class="figure">
+<img src="www/new_branch/5.2-ask_reviewer.gif" alt="Ask review"><p class="caption">Ask review</p>
+</div>
+<ul>
+<li>and finally create the pull request.</li>
+</ul>
+</div>
+<div id="review" class="section level3">
+<h3 class="hasAnchor">
+<a href="#review" class="anchor"></a>Review</h3>
+<p>As a reviewer, you’ll have to open the pull request (in the Pull requests tab), and review the code in the “Files changed” sub-tab:</p>
+<div class="figure">
+<img src="www/new_branch/5.3-review.gif" alt="Review"><p class="caption">Review</p>
+</div>
+<p>If there are some changes needed before merging the code to the <code>master</code> branch, you can leave a comment (and even propose some code) right where the changes are needed.</p>
+<p>Then, the person that did pull the request will have to integrate those proposed changes into its own branch, commit the changes, and update the pull request.</p>
+<p>Then, the reviewer will review the code again, and can finally accept the pull request: <img src="www/new_branch/5.4-accept.gif" alt="Accept pull request"> When the pull request is accepted, it can finally be merged into the <code>master</code> branch:</p>
+<div class="figure">
+<img src="www/new_branch/5.5-merge.gif" alt="Merge"><p class="caption">Merge</p>
+</div>
+<p>This step will add all the commits from the branch to the <code>master</code> branch. A cleaner option is to use the <code>Squash and merge</code> option, which will combine all commits from the branch into one commit only. This option may be cleaner to avoid too many unnecessary commits in the master branch.<br>
+You can optionally delete the branch after merging it to make a cleaner repository.</p>
+<p>Note that the previous step can be made all at once by the reviewer (accept and merge).</p>
+</div>
+<div id="update" class="section level3">
+<h3 class="hasAnchor">
+<a href="#update" class="anchor"></a>Update</h3>
+<p>Once the merge is done, all users can update their local repository with the new code. If the branch was deleted from Github.com, it will still remain on the local copy of the user, so you will have to delete it manually using Github desktop:</p>
+<div class="figure">
+<img src="www/new_branch/5.6-update_repo.gif" alt="Update repository"><p class="caption">Update repository</p>
+</div>
+</div>
+<div id="conflicts" class="section level3">
+<h3 class="hasAnchor">
+<a href="#conflicts" class="anchor"></a>Conflicts</h3>
+<p>A pull request may modify some code that was also modified by another user that pulled his changes before you in the <code>master</code> branch. In that case, GIT cannot know which code is the right one, or if there is a need of more code to integrate both changes, so a manual choice has to be made.</p>
+<p>Here is an example of a conflict in two steps:</p>
+<ul>
+<li><p>Making different modifications on two different branches: <img src="www/conflicts/1-create_merge_conflict.gif" alt="Merge conflict"></p></li>
+<li><p>Trying to merge the branches and resolving the conflicts using Atom:</p></li>
+</ul>
+<div class="figure">
+<img src="www/conflicts/2-merge_conflict.gif" alt="Resolve conflict"><p class="caption">Resolve conflict</p>
+</div>
+<p>This is an example made on the local repository, but a pull request would yield the same result.</p>
+<p>Here is an example with a pull request from a branch:</p>
+<div class="figure">
+<img src="www/conflicts/3-pull_request_conflict.gif" alt="Resolve pull request conflict"><p class="caption">Resolve pull request conflict</p>
+</div>
+<p>As you can see, this pull request cannot be automatically merged, so you have to resolve the conflicts from your computer, or you can even use the web editor if you prefer:</p>
+<div class="figure">
+<img src="www/conflicts/4-pull_request_conflict_merge.gif" alt="Merge pull request after resolved conflict"><p class="caption">Merge pull request after resolved conflict</p>
+</div>
+</div>
+</div>
+<div id="install" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install" class="anchor"></a>Install</h2>
+<p>New users can now install your package directly from the Github repository using this command line:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># install.packages("remotes")</span></a>
+<a class="sourceLine" id="cb14-2" title="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"SticsRPacks/sandbox"</span>)</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="co"># Or using devtools if already installed:</span></a>
+<a class="sourceLine" id="cb14-4" title="4">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"SticsRPacks/sandbox"</span>)</a></code></pre></div>
+<div class="figure">
+<img src="www/9-install_from_gitub.gif" alt="Install package"><p class="caption">Install package</p>
+</div>
 </div>
 <div id="badges-ci-and-code-coverage" class="section level2">
 <h2 class="hasAnchor">

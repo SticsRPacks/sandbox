@@ -13,5 +13,8 @@ LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
 Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr

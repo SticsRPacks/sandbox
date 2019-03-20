@@ -563,11 +563,11 @@ made.
 Here is an example of a conflict in two steps:
 
   - Making different modifications on two different branched: ![Merge
-    conflict](www/confilcts/1-create_merge_conflict.gif)
+    conflict](www/conflicts/1-create_merge_conflict.gif)
 
   - Trying to merge the branches and resolving the conflicts using Atom:
 
-![Resolve conflict](www/confilcts/2-merge_conflict.gif)
+![Resolve conflict](www/conflicts/2-merge_conflict.gif)
 
 This is an example made on the local repository, but a pull request
 would yield the same result.
@@ -575,14 +575,14 @@ would yield the same result.
 Here is an example with a pull request from a branch:
 
 ![Resolve pull request
-conflict](www/confilcts/3-pull_request_conflict.gif)
+conflict](www/conflicts/3-pull_request_conflict.gif)
 
 As you can see, this pull request cannot be automatically merged, so you
 have to resolve the conflicts from your computer, or you can even use
 the web editor if you prefer:
 
 ![Merge pull request after resolved
-conflict](www/confilcts/4-pull_request_conflict_merge.gif)
+conflict](www/conflicts/4-pull_request_conflict_merge.gif)
 
 ## Install
 
