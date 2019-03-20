@@ -296,7 +296,15 @@ To authorize github pages, go to the project page on the repository, then go to 
 
 The website will be at an address of the form (https://sticsrpacks.github.io/{packagename}/), for example our project is rendered at this adress: https://sticsrpacks.github.io/sandbox/
 
-## Share your changes
+## Share your changes using GIT/GITHUB
+
+### Branches
+
+For the sake of simplicity, we only used the `master` branch of the repository in the previous example. The downside of using only this branch is that each time a user will change the code while you change it also, it will override the others code. To avoid this behavior, GIT has a nice feature called branches. A branch can be thought as a copy of your project at a given time, that have a parallel history to the `master` branch. In other words, it allows you to develop some code while not bothering the others.
+
+To do so, you can create your own branch using Github desktop. Usually, we name a branch after the feature it is supposed to add. You can make a new branch for each independent feature you want to use. To create a new branch, simply follow the steps showed below:
+
+
 
 ### Commit
 
