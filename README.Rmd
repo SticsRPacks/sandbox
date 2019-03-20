@@ -100,10 +100,15 @@ install.packages(c("devtools", "roxygen2", "testthat", "knitr","usethis"))
 
 ### Open the Rstudio project
 
-Double-click on the `sandbox.Rproj` file. It will open the Rstudio project. From the `Files` window, open the R folder. You will find here all the R scripts used for the package.
-It is highly encouraged to put each function in a separate file, unless they are very short and can be grouped under a common file with a title that describes well their purpose.
+Double-click on the `sandbox.Rproj` file. It will open the Rstudio project. The `.Rproj` file contains informations about the project for RStudio (*e.g.* it is an R package, it uses devtools, etc...).
+
+![Open RStudio Project](www/1-open_project.gif)
+
+From the `Files` window, open the R folder. You will find here all the R scripts used for the package.
 
 ### Simple function
+
+It is highly encouraged to put each function in a separate file, unless they are very short and can be grouped under a common file with a title that describes well their purpose.
 
 Click on the [`add.r`](R/add.r) file. This file contains one function: `add_x()`.
 This function simply adds the input to itself. You can see that it is preceded by some text formatted as follows: `#' Text`. This text is a Roxygen documentation. It is formated on a special way that helps R generate the package documentation.
@@ -136,38 +141,23 @@ The help page of the function should pop-up.
 
 ### Add a function
 
-Add the following code to the R script: 
+Create a new R script file, add the following code and save it: 
 
 ```{r eval=FALSE}
-add_xy= function(x,y){
-  x+y
+div_x= function(x,y){
+  x/y
 }
 ```
 
-This function adds x to y and return the result. Your R script should look like this now: 
-```{r eval=FALSE}
-#' Add once
-#'
-#' @description Adds the input to itself
-#'
-#' @param x Double or Integer
-#'
-#' @return x+x
-#' @export
-#'
-#' @examples
-#' add_x(2)
-#'
-add_x= function(x){
-  x+x
-}
+![Open RStudio Project](www/2-new_function.gif)
 
-add_xy= function(x,y){
-  x+y
-}
-```
+This function divides x by y and return the result. 
 
-To add the documentation to your function, place your cursor into the function, click on the magic wand just above your script and choose `Insert Roxygen Skeleton`, or press `ctrl+shift+alt+R`. This will create a dummy Roxygen documentation above your function using the arguments of your function. Your function should look like this now:
+To add some documentation to your function, place your cursor into the function, click on the magic wand just above your script and choose `Insert Roxygen Skeleton`, or press `ctrl+shift+alt+R`. This will create a dummy Roxygen documentation above your function using the arguments of your function. 
+
+![Open RStudio Project](www/3-add_roxygen.gif)
+
+Your function should look like this now:
 
 ```{r eval=FALSE}
 #' Title
@@ -179,41 +169,48 @@ To add the documentation to your function, place your cursor into the function, 
 #' @export
 #'
 #' @examples
-add_xy= function(x,y){
-  x+y
+div_x= function(x,y){
+  x/y
 }
 ```
 
-Fill the documentation such as: 
+Fill the documentation, and add some new keywords such as a description: 
 ```{r eval=FALSE}
-#' Add x to y
+#' Divide
 #'
-#' @param x Double or integer
-#' @param y Double or integer
+#' @description Divide x by y
 #'
-#' @return x+y
+#' @param x The numerator
+#' @param y The denominator
+#'
+#' @return x/y
 #' @export
 #'
 #' @examples
-#' add_xy(2,3)
-add_xy= function(x,y){
-  x+y
+#' div_x(1,2)
+div_x= function(x,y){
+  x/y
 }
 ```
 
 
-Then re-build your documentation (`ctrl+shift+D`), and re-build your package (`ctrl+shift+B`). You should have access to your own function help page:
+Then re-build your documentation (`ctrl+shift+D`), and re-build your package (`ctrl+shift+B`). 
+
+![Open RStudio Project](www/4-document_and_build.gif)
+
+You should have access to your own function help page:
 ```{r, eval= FALSE}
-?add_xy
+?div_x
 ```
 
 ## Test your functions
 
-After writing a new function or modifying one, it is important to test it. This step is mandatory, because some other functions may call this function you wrote, and it becomes more and more difficult to know where bugs are located when none of the functions were thoroughly tested. There are two steps to test a function. The first one is to test it by yourself when designing it, and the other one is by adding automatic tests.
+After writing a new function or modifying one, it is important to test it. This step is mandatory, because some other functions may call this very function you just wrote, and it becomes more and more difficult to know where bugs are located when none of the functions were thoroughly tested. There are two steps to test a function. The first one is to test it by yourself when designing it, and the other one is by adding automatic tests.
 
 ### Manually
 
-When coding a function, you should always test if each line of code in your function is returning the expected result, and if the function returns the correct output after execution. To do so, you can create a separate Rstudio project where you will test your package: go to `File`>`New Project`>`New Directory`>`New Project`, type your project name and choose where it will be located on your computer. The project name is usually taken as the R package name followed by "test", such as `SticsOnR_test`. This step is not mandatory but strongly advised.  
+When coding a function, you should always test if each line of code in your function is returning the expected result, and if the function returns the correct output after execution.  
+It is good practice to maintain your R package as light as possible by keeping the data outside of it whenever possible. Creating an independent R project for tests helps you to keep the external data or executables and the created outputs outside of the package project. To do so, you can create a separate Rstudio project where you will test your package: go to `File`>`New Project`>`New Directory`>`New Project`, type your project name and choose where it will be located on your computer. The project name is usually taken as the R package name followed by "test", such as `SticsOnR_test`. This step is not mandatory but strongly advised.  
 
 After creating the new project, add a new R script (`ctrl+shift+N`), load your R package such as: 
 
@@ -221,18 +218,21 @@ After creating the new project, add a new R script (`ctrl+shift+N`), load your R
 library(SticsOnR)
 ```
 
-And test your function by giving different inputs and checking the function outputs.
+And test your function by giving different inputs and checking the function outputs.  
+
 
 ### Automatically
 
-Manual tests are a good first step to evaluate a function, but users tend to test their functions once only, and to skip the tests when making a small change. But this methodology can make the code break for everybody, which is not desirable.
+Manual tests are a good first step to evaluate a function, but developers tend to test their functions once only, and to skip the tests when making a small change. This methodology can make the code break for everybody when something is changed but not tested, which is not desirable.
 
-Here enters the automatic tests, or unit tests. These tests are written once, and executed each time the code of the package is pushed to `github.com`, or every time the user needs to. These tests are implemented by using the `testthat` package. All documentation is available on the [package website](https://testthat.r-lib.org/).
+To avoid these difficulties, it is strongly advised to use automatic tests, also called unit tests. These tests are written once, and executed each time the code of the package is pushed to `github.com`, or every time the developer needs to. These tests are implemented by using the `testthat` package. All documentation is available on the [package website](https://testthat.r-lib.org/).
 
 To add unit tests to our example function (or to a set of functions), run this command:  
 ```{r, eval=FALSE}
-usethis::use_test("add")
+usethis::use_test("div_x")
 ```
+
+![Open RStudio Project](www/7-add_tests.gif)
 
 If you add tests on your package for the first time, the `usethis::use_test()` command will create all the infrastructure you need, if not, it will just create a new test script to your tests. 
 
@@ -258,11 +258,14 @@ This test is an example that tests if `2 * 2` is equal to `4`. Change the code t
 context("test-add")
 
 test_that("add_x returns right output", {
-  expect_equal(add_x(1), 2)
+  expect_equal(div_x(1,2), 0.5)
 })
 ```
 
-This code tests that `add_x(1)` returns `2`. To run the test, go to the `Build` tab, and choose `Test Package`, or press `ctrl+shift+T`. The tests will all be executed, and a report will appear on the `Build` tab at the end, showing which tests were successfull, and which failed or returned warnings. 
+This code tests that `div_x(1,2)` returns `0.5`. To run the test, go to the `Build` tab, and choose `Test Package`, or press `ctrl+shift+T`. The tests will all be executed, and a report will appear on the `Build` tab at the end, showing which tests were successfull, and which failed or returned warnings. 
+
+![Open RStudio Project](www/7-run_tests.gif)
+
 
 You should add different tests for each of your functions, to check if they work correctly, and if they handle errors properly.
 
@@ -274,17 +277,7 @@ More details about unit tests with `testthat` are given [here](http://r-pkgs.had
 The `devtools` package that you installed previously adds also the tests that CRAN do on all packages. These tests consists on checking that all mandatory files are present, that functions are well documented, etc... 
 It is very important to check the package regularly for errors so the users can download a functionning package. To start a CRAN check, go to the `Build` tab, press the `More` button, and choose `Check Package`, or simply use `ctrl+shift+E`. The package will be checked, and a report will be given at the end. 
 
-
-## Share your changes
-
-### Commit
-Each time you modify the package, you should commit your changes to GIT. It is good practice to commit whenever a little step has been reached so the commit message is short enough but still explains everything you did. This methodology make more commits, but is still preferred because it is easier to find changes in the history earlier. So do not hesitates to split your work into little commits. 
-
-To commit your changes, open `Github desktop` and choose the repository. The files that were modified in the repository appear in the left-most window, and the associated code that was added or removed should appear in the window on the right. The code in green was added, and the code in red was removed. To commit those changes, enter a commit message in the left window next to your account image, where it is written `Summary (required)`. The message should be concise but should describe all the changes. Then press `Commit to master`. Your changes are commited to the master branch and saved on your computer.
-
-### Push
-
-Whenever your work is done, or you go for lunch, you should push all your commits to github.com. To do so, just press the `Push origin` button in the center or in the upper window. Github desktop will send the changes to github.com, and they should appear in the repository.
+![Open RStudio Project](www/8-run_CRAN_checks.gif)
 
 ## Make a website 
 
@@ -295,11 +288,42 @@ To set up the website, simply execute the following code each time you update th
 pkgdown::build_site()
 ```
 
+![Open RStudio Project](www/5-build_site.gif)
+
 When first called, the function creates a new folder called `docs` where it puts all the `html` files for the website. When pushed to github.com, a website is created from these files if you authorized github pages. 
 
 To authorize github pages, go to the project page on the repository, then go to `settings`>`Github Pages`>`Source` and then choose `master branch /docs folder`.
 
 The website will be at an address of the form (https://sticsrpacks.github.io/{packagename}/), for example our project is rendered at this adress: https://sticsrpacks.github.io/sandbox/
+
+## Share your changes
+
+### Commit
+
+Each time you modify the package, you should commit your changes to GIT. It is good practice to commit whenever a little step has been reached so the commit message is short enough but still explains everything you did. This methodology make more commits, but is still preferred because it is easier to find changes in the history earlier. So do not hesitates to split your work into little commits. 
+
+To commit your changes, open `Github desktop` and choose the repository. The files that were modified in the repository appear in the left-most window, and the associated code that was added or removed should appear in the window on the right. The code in green was added, and the code in red was removed. To commit those changes, enter a commit message in the left window next to your account image, where it is written `Summary (required)`. The message should be concise but should describe all the changes. Then press `Commit to master`. Your changes are commited to the master branch and saved on your computer.
+
+### Push
+
+Whenever your work is done, or you go for lunch, you should push all your commits to github.com. To do so, just press the `Push origin` button in the center or in the upper window. Github desktop will send the changes to github.com, and they should appear in the repository.
+
+
+![Open RStudio Project](www/6-commit_and_puch.gif)
+
+
+## Install
+
+New users can now install your package directly from the Github repository using this command line:
+
+```{r}
+# install.packages("remotes")
+remotes::install_github("SticsRPacks/sandbox")
+# Or using devtools if already installed:
+devtools::install_github("SticsRPacks/sandbox")
+```
+
+![Open RStudio Project](www/9-install_from_gitub.gif)
 
 ## Badges, CI and code coverage
 
