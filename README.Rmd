@@ -376,6 +376,23 @@ Once the merge done, all users can update their local repository with the new co
 
 ![Update repository](www/new_branch/5.6-update_repo.gif)
 
+
+### Conflicts
+
+A pull request may modify some code that was also modified by another user that pulled his changes before you in the `master` branch. In that case, GIT cannot know which code is the right one, or if there is a need of more code to integrate both changes, so a manual choice has to be made.
+
+Here is an example of a conflict in two steps:
+
+* Making different modifications on two different branched:
+![Merge conflict](www/confilcts/1-create_merge_conflict.gif)
+
+* Trying to merge the branches and resolving the conflicts using Atom:
+
+![Resolve conflict](www/confilcts/2-merge_conflict.gif)
+
+
+This is an example made on the local repository, but a pull request would yield the same result.
+
 ## Install
 
 New users can now install your package directly from the Github repository using this command line:
