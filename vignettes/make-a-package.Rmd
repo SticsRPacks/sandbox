@@ -86,6 +86,25 @@ usethis::use_readme_rmd()
 
 This function will create a pre-formatted README.Rmd file. Try to update it a little bit, and then knit it to make the README.md file.
 
+Rmarkdown is a document written in markdown that can integrate some R code. The R code can be displayed to the users, executed, and its output displayed if necessary. In fact this very document is written in Rmarkdown. 
+
+If you don't know how to write a Rmarkdown file, there is a nice [cheat sheet by RStudio](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf). In few words, here are some basics synthax used in markdown:
+
+* Headings are written using `#`. The title of rank 1 is written as: `# The big title`, the second rank is written as `## Rank two title`, the third one `### Little title`.
+
+* Links are written as `[word that appear as text](www.the_actual_link.com)`
+
+* Images are included by a link to their location
+    * on the web: `![](www.link_to_the_image.png)`  
+    * on your computer: `![](www/image.png)`
+    
+* Bold is written using two `**` as this: `**here is a bold sentence**`
+
+* Italic is using one `*`: `here is a sentence in italic`
+
+A markdown cheat sheet is available [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links).
+
+
 ### Add a NEWS file
 
 A news file is used to track the changes from one version of a package to another. It can be very usefull for users when there are breaking changes (*i.e.* code that potentially give errors when applied as in a previous version of the package).
