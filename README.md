@@ -6,7 +6,7 @@
 # sandbox
 
 [![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/SticsRPacks/sandbox?branch=master&svg=true)](https://ci.appveyor.com/project/SticsRPacks/sandbox)
+status](https://ci.appveyor.com/api/projects/status/9r39dkphrhlt0ffa?svg=true)](https://ci.appveyor.com/project/VEZY/sandbox)
 [![Travis build
 status](https://travis-ci.org/SticsRPacks/sandbox.svg?branch=master)](https://travis-ci.org/SticsRPacks/sandbox)
 [![Coverage
@@ -562,7 +562,7 @@ made.
 
 Here is an example of a conflict in two steps:
 
-  - Making different modifications on two different branched: ![Merge
+  - Making different modifications on two different branches: ![Merge
     conflict](www/conflicts/1-create_merge_conflict.gif)
 
   - Trying to merge the branches and resolving the conflicts using Atom:

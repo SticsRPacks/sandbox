@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 
 # sandbox
 
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/SticsRPacks/sandbox?branch=master&svg=true)](https://ci.appveyor.com/project/SticsRPacks/sandbox)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/9r39dkphrhlt0ffa?svg=true)](https://ci.appveyor.com/project/VEZY/sandbox)
 [![Travis build status](https://travis-ci.org/SticsRPacks/sandbox.svg?branch=master)](https://travis-ci.org/SticsRPacks/sandbox)
 [![Coverage status](https://codecov.io/gh/SticsRPacks/sandbox/branch/master/graph/badge.svg)](https://codecov.io/github/SticsRPacks/sandbox?branch=master)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
