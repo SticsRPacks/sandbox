@@ -180,21 +180,22 @@
 <h3 class="hasAnchor">
 <a href="#add-a-news-file" class="anchor"></a>Add a NEWS file</h3>
 <p>A news file is used to track the changes from one version of a package to another. It can be very usefull for users when there are breaking changes (<em>i.e.</em> code that potentially give errors when applied as in a previous version of the package).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_news_md">use_news_md</a></span>()</a></code></pre></div>
 </div>
 <div id="add-some-code" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-some-code" class="anchor"></a>Add some code</h3>
 <p>Now we can add some code to the project. To do so, use this command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_r">use_r</a></span>(<span class="dt">name =</span> <span class="st">"div_x"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_r">use_r</a></span>(<span class="dt">name =</span> <span class="st">"div_x"</span>)</a></code></pre></div>
 <p>This function just creates an R script called “div_x”. You can do it manually also if you prefer:</p>
 <div class="figure">
 <img src="../www/2-new_function.gif" alt="New function"><p class="caption">New function</p>
 </div>
 <p>Each function should be in its own separate file. If some functions are highly related, you can group them into the same file though.</p>
 <p>Open <code>div_x.R</code>, and add some code, for example this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb6-2" title="2">  x<span class="op">/</span>y</a>
-<a class="sourceLine" id="cb6-3" title="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb7-2" title="2">  x<span class="op">/</span>y</a>
+<a class="sourceLine" id="cb7-3" title="3">}</a></code></pre></div>
 <p>This is a simple function that divides x by y.</p>
 </div>
 <div id="document" class="section level3">
@@ -206,40 +207,48 @@
 <img src="../www/3-add_roxygen.gif" alt="Add roxygen"><p class="caption">Add roxygen</p>
 </div>
 <p>Your function should look like this now:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">#' Title</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="co">#' @param x </span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co">#' @param y </span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="co">#' @return</span></a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="co">#' @export</span></a>
-<a class="sourceLine" id="cb7-8" title="8"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co">#' @examples</span></a>
-<a class="sourceLine" id="cb7-10" title="10">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb7-11" title="11">  x<span class="op">/</span>y</a>
-<a class="sourceLine" id="cb7-12" title="12">}</a></code></pre></div>
-<p>Fill the documentation, and add some new keywords such as a description:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">#' Divide</span></a>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co">#' Title</span></a>
 <a class="sourceLine" id="cb8-2" title="2"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="co">#' @description Divide x by y</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="co">#' @param x The numerator</span></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="co">#' @param y The denominator</span></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-8" title="8"><span class="co">#' @return x/y</span></a>
-<a class="sourceLine" id="cb8-9" title="9"><span class="co">#' @export</span></a>
-<a class="sourceLine" id="cb8-10" title="10"><span class="co">#'</span></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="co">#' @examples</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="co">#' div_x(1,2)</span></a>
-<a class="sourceLine" id="cb8-13" title="13">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb8-14" title="14">  x<span class="op">/</span>y</a>
-<a class="sourceLine" id="cb8-15" title="15">}</a></code></pre></div>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">#' @param x </span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">#' @param y </span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="co">#' @return</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co">#' @export</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">#' @examples</span></a>
+<a class="sourceLine" id="cb8-10" title="10">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb8-11" title="11">  x<span class="op">/</span>y</a>
+<a class="sourceLine" id="cb8-12" title="12">}</a></code></pre></div>
+<p>Fill the documentation, and add some new keywords such as a description:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co">#' Divide</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co">#' @description Divide x by y</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="co">#' @param x The numerator</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="co">#' @param y The denominator</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="co">#' @return x/y</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="co">#' @export</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="co">#'</span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="co">#' @examples</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="co">#' div_x(1,2)</span></a>
+<a class="sourceLine" id="cb9-13" title="13">div_x=<span class="st"> </span><span class="cf">function</span>(x,y){</a>
+<a class="sourceLine" id="cb9-14" title="14">  x<span class="op">/</span>y</a>
+<a class="sourceLine" id="cb9-15" title="15">}</a></code></pre></div>
+<p>Here are some more details about roxygen2:</p>
+<ul>
+<li><p><a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">Introduction</a></p></li>
+<li><p>A more in-depth introduction <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html">here</a></p></li>
+<li><p>How to use other packages <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/namespace.html">here</a>, especially the “Imports” part.</p></li>
+<li><p>All the <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rdkeywords.html">keywords</a></p></li>
+<li><p>And how to use markdown instead of roxygen keywords <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html">here</a></p></li>
+</ul>
 <p>Then re-build your documentation (<code>ctrl+shift+D</code>), and re-build your package (<code>ctrl+shift+B</code>).</p>
 <div class="figure">
 <img src="../www/4-document_and_build.gif" alt="Document and build"><p class="caption">Document and build</p>
 </div>
 <p>You should have access to your own function help page:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">?div_x</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">?div_x</a></code></pre></div>
 </div>
 </div>
 <div id="test-your-functions" class="section level2">
@@ -252,7 +261,7 @@
 <p>When coding a function, you should always test if each line of code in your function is returning the expected result, and if the function returns the correct output after execution.<br>
 It is good practice to maintain your R package as light as possible by keeping the data outside of it whenever possible. Creating an independent R project for tests helps you to keep the external data or executables and the created outputs outside of the package project. To do so, you can create a separate Rstudio project where you will test your package: go to <code>File</code>&gt;<code>New Project</code>&gt;<code>New Directory</code>&gt;<code>New Project</code>, type your project name and choose where it will be located on your computer. The project name is usually taken as the R package name followed by “test”, such as <code>SticsOnR_test</code>. This step is not mandatory but strongly advised.</p>
 <p>After creating the new project, add a new R script (<code>ctrl+shift+N</code>), load your R package such as:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(SticsOnR)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(SticsOnR)</a></code></pre></div>
 <p>And test your function by giving different inputs and checking the function outputs.</p>
 </div>
 <div id="automatically" class="section level3">
@@ -261,7 +270,7 @@ It is good practice to maintain your R package as light as possible by keeping t
 <p>Manual tests are a good first step to evaluate a function, but developers tend to test their functions once only, and to skip the tests when making a small change. This methodology can make the code break for everybody when something is changed but not tested, which is not desirable.</p>
 <p>To avoid these difficulties, it is strongly advised to use automatic tests, also called unit tests. These tests are written once, and executed each time the code of the package is pushed to <code>github.com</code>, or every time the developer needs to. These tests are implemented by using the <code>testthat</code> package. All documentation is available on the <a href="https://testthat.r-lib.org/">package website</a>.</p>
 <p>To add unit tests to our example function (or to a set of functions), run this command:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_testthat">use_test</a></span>(<span class="st">"div_x"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_testthat">use_test</a></span>(<span class="st">"div_x"</span>)</a></code></pre></div>
 <div class="figure">
 <img src="../www/7-add_tests.gif" alt="Add tests"><p class="caption">Add tests</p>
 </div>
@@ -272,17 +281,17 @@ It is good practice to maintain your R package as light as possible by keeping t
 <li><p>An R script called <code>testthat.R</code>. This script will call all tests in the R scripts located in <code>testthat</code>. Do not mind this script, you will probably never have to modify it.</p></li>
 </ul>
 <p>If you executed the previous command, you should have a unit test script called <code>test-add.R</code> in this directory with the following code:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">context</span>(<span class="st">"test-add"</span>)</a>
-<a class="sourceLine" id="cb12-2" title="2"></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="kw">test_that</span>(<span class="st">"multiplication works"</span>, {</a>
-<a class="sourceLine" id="cb12-4" title="4">  <span class="kw">expect_equal</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb12-5" title="5">})</a></code></pre></div>
-<p>This test is an example that tests if <code>2 * 2</code> is equal to <code>4</code>. Change the code to the following to test our function:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">context</span>(<span class="st">"test-add"</span>)</a>
 <a class="sourceLine" id="cb13-2" title="2"></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="kw">test_that</span>(<span class="st">"add_x returns right output"</span>, {</a>
-<a class="sourceLine" id="cb13-4" title="4">  <span class="kw">expect_equal</span>(<span class="kw">div_x</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="kw">test_that</span>(<span class="st">"multiplication works"</span>, {</a>
+<a class="sourceLine" id="cb13-4" title="4">  <span class="kw">expect_equal</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">4</span>)</a>
 <a class="sourceLine" id="cb13-5" title="5">})</a></code></pre></div>
+<p>This test is an example that tests if <code>2 * 2</code> is equal to <code>4</code>. Change the code to the following to test our function:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">context</span>(<span class="st">"test-add"</span>)</a>
+<a class="sourceLine" id="cb14-2" title="2"></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="kw">test_that</span>(<span class="st">"add_x returns right output"</span>, {</a>
+<a class="sourceLine" id="cb14-4" title="4">  <span class="kw">expect_equal</span>(<span class="kw">div_x</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb14-5" title="5">})</a></code></pre></div>
 <p>This code tests that <code>div_x(1,2)</code> returns <code>0.5</code>. To run the test, go to the <code>Build</code> tab, and choose <code>Test Package</code>, or press <code>ctrl+shift+T</code>. The tests will all be executed, and a report will appear on the <code>Build</code> tab at the end, showing which tests were successfull, and which failed or returned warnings.</p>
 <p><img src="../www/7-run_tests.gif"></p>
 <p>You should add different tests for each of your functions, to check if they work correctly, and if they handle errors properly.</p>
@@ -302,7 +311,7 @@ It is good practice to maintain your R package as light as possible by keeping t
 <a href="#make-a-website" class="anchor"></a>Make a website</h2>
 <p>A website can be automatically generated from the helpfiles of the R package, the vignettes and the <code>README.md</code> file by using the <code>pkgdown</code> package. For example the auto-generated website for the <code>SticsOnR</code> package is available <a href="https://sticsrpacks.github.io/SticsOnR/">here</a>.</p>
 <p>To set up the website, simply execute the following code each time you update the package:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">pkgdown<span class="op">::</span><span class="kw"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">pkgdown<span class="op">::</span><span class="kw"><a href="https://pkgdown.r-lib.org/reference/build_site.html">build_site</a></span>()</a></code></pre></div>
 <p><img src="../www/5-build_site.gif"></p>
 <p>When first called, the function creates a new folder called <code>docs</code> where it puts all the <code>html</code> files for the website.</p>
 </div>

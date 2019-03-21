@@ -109,6 +109,10 @@ A markdown cheat sheet is available [here](https://github.com/adam-p/markdown-he
 
 A news file is used to track the changes from one version of a package to another. It can be very usefull for users when there are breaking changes (*i.e.* code that potentially give errors when applied as in a previous version of the package).
 
+```{r, eval=FALSE}
+usethis::use_news_md()
+```
+
 ### Add some code
 
 Now we can add some code to the project. To do so, use this command:
@@ -177,6 +181,18 @@ div_x= function(x,y){
 }
 ```
 
+
+Here are some more details about roxygen2:
+
+* [Introduction](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html)  
+
+* A more in-depth introduction [here](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)  
+
+* How to use other packages [here](https://cran.r-project.org/web/packages/roxygen2/vignettes/namespace.html), especially the "Imports" part.  
+
+* All the [keywords](https://cran.r-project.org/web/packages/roxygen2/vignettes/rdkeywords.html)  
+
+* And how to use markdown instead of roxygen keywords [here](https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html)  
 
 Then re-build your documentation (`ctrl+shift+D`), and re-build your package (`ctrl+shift+B`). 
 
