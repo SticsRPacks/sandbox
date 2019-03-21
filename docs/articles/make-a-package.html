@@ -76,7 +76,7 @@
       <h1>Make an R package</h1>
                         <h4 class="author">R. Vezy</h4>
             
-            <h4 class="date">2019-03-20</h4>
+            <h4 class="date">2019-03-21</h4>
       
       
       <div class="hidden name"><code>make-a-package.Rmd</code></div>
@@ -158,6 +158,23 @@
 <p>To do so, use <code><a href="https://www.rdocumentation.org/packages/usethis/topics/use_readme_rmd">usethis::use_readme_rmd()</a></code>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_readme_rmd">use_readme_rmd</a></span>()</a></code></pre></div>
 <p>This function will create a pre-formatted README.Rmd file. Try to update it a little bit, and then knit it to make the README.md file.</p>
+<p>Rmarkdown is a document written in markdown that can integrate some R code. The R code can be displayed to the users, executed, and its output displayed if necessary. In fact this very document is written in Rmarkdown.</p>
+<p>If you don’t know how to write a Rmarkdown file, there is a nice <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">cheat sheet by RStudio</a>. In few words, here are some basics synthax used in markdown:</p>
+<ul>
+<li><p>Headings are written using <code>#</code>. The title of rank 1 is written as: <code># The big title</code>, the second rank is written as <code>## Rank two title</code>, the third one <code>### Little title</code>.</p></li>
+<li><p>Links are written as <code>[word that appear as text](www.the_actual_link.com)</code></p></li>
+<li>Images are included by a link to their location
+<ul>
+<li>on the web: <code>![](www.link_to_the_image.png)</code><br>
+</li>
+<li>on your computer: <code>![](www/image.png)</code>
+</li>
+</ul>
+</li>
+<li><p>Bold is written using two <code>**</code> as this: <code>**here is a bold sentence**</code></p></li>
+<li><p>Italic is using one <code>*</code>: <code>here is a sentence in italic</code></p></li>
+</ul>
+<p>A markdown cheat sheet is available <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">here</a>.</p>
 </div>
 <div id="add-a-news-file" class="section level3">
 <h3 class="hasAnchor">

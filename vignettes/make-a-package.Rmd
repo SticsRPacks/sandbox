@@ -102,7 +102,7 @@ If you don't know how to write a Rmarkdown file, there is a nice [cheat sheet by
 
 * Italic is using one `*`: `here is a sentence in italic`
 
-A markdown cheat sheet is available [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links).
+A markdown cheat sheet is available [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
 
 ### Add a NEWS file
