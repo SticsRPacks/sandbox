@@ -1,7 +1,7 @@
-pandoc: '2.6'
-pkgdown: 1.2.0
+pandoc: 1.19.2.1
+pkgdown: 1.3.0
 pkgdown_sha: ~
 articles:
-  make-a-package: make-a-package.html
-  use-git-and-github: use-git-and-github.html
+  make-a-package: ../../../../Mes Donnees/GitHub/sandbox/vignettes/make-a-package.html
+  use-git-and-github: ../../../../Mes Donnees/GitHub/sandbox/vignettes/use-git-and-github.html
 
