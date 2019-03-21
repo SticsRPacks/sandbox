@@ -98,7 +98,7 @@
 <h3 class="hasAnchor">
 <a href="#add-git-versionning-to-your-package" class="anchor"></a>Add GIT versionning to your package</h3>
 <p>To add GIT versionning to your package, use this command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">usethis<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/usethis/topics/use_git">use_git</a></span>()</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">usethis::<span class="kw">use_git</span>()</code></pre></div>
 <p>This function will initialize the versioning using GIT with a first commit, and set your .Rbuildignore and .gitignore files. Those are configuration files telling R and GIT to not use some files or folders in the project.</p>
 </div>
 <div id="use-github-desktop" class="section level3">
@@ -133,7 +133,7 @@ To authorize github pages, go to the project page on the repository, then go to 
 <a href="#clone" class="anchor"></a>Clone</h3>
 <p>To collaborate on a project, you first have to import it on your computer. To do so, there are two ways: to clone the repository, or to fork it. We will only talk about cloning during this tutorial, but forking is also a very interesting way for bigger projects.</p>
 <p>To clone the <code>sandbox</code> project, simply go to Github desktop, go to <code>File</code>, clone repository, or press <code>ctrl+shift+O</code>. And then click on <code>URL</code>, and enter this address:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1">https://github.com/SticsRPacks/sandbox.git</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">https://github.com/SticsRPacks/sandbox.git</code></pre></div>
 <p>Then, choose where the repository will be cloned (copied) into your computer.</p>
 <blockquote>
 <p>People that already are members of the SticsRPacks organisation may find the repository directly in the “Github.com” tab.</p>
@@ -189,7 +189,9 @@ Well, there are two ways:<br>
 <h3 class="hasAnchor">
 <a href="#pull-request" class="anchor"></a>Pull request</h3>
 <p>Whenever you finished the modifications you wanted to do with your branch, you can make a pull request. This is a way of asking other contributors for their approval of the changes you made before merging your code to the <code>master</code> branch:</p>
-<p><img src="../www/new_branch/5.1-pull_request.gif"></p>
+<div class="figure">
+<img src="../www/new_branch/5.1-pull_request.gif">
+</div>
 <p>You’ll have several steps to complete after:</p>
 <ul>
 <li>give a general title to your pull request, for example here it is named after the last commit: “Test if x is numeric in add_x”<br>
@@ -275,7 +277,7 @@ It is recommended to delete the branch after merging it to make a cleaner reposi
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
 </div>
       </footer>
 </div>
