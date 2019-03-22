@@ -227,5 +227,5 @@ It will download the code from the master branch (or other if provided) and buil
   
 ## Learn about continuous integration
 
-Go to the next tutorial: [continuous integration](docs/articles/continuous-integration.html).  
+Go to the next tutorial: [continuous integration](continuous-integration.html).  
 Or go to the previous tutorial: [R package from scracth ](make-a-package.html).  
