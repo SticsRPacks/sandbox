@@ -1,0 +1,126 @@
+---
+title: "Continuous integration - CI"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Continuous integration - CI}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+## Introduction to CI
+
+Continuous integration - or CI - is a development practice where developers push and merge their code modifications as often as possible to a shared branch in a remote repository (i.e. [Github.com](https://github.com/) repository), where automatic tests and build are made using external tools. In practice, it means that when a developer made changes on its branch and request a pull to the `master` branch, the code is exported from `Github.com` automatically to another server that test the package's integrity by running the `testthat` tests in the package along with the `CRAN` tests (`R CMD check`). 
+
+Put into simple terms, the CRAN checks and unit tests of your package and the build of its website can be done online each time a push has been done to github.com. This is called continuous integration, or CI.
+
+The main goal of this practice is to reduce the risk of progressive divergence between developers code to reduce at the minimum the time spent on integrating the code to the main project. It helps find conflicts and bugs very early in the development, and makes everybody save time on the end. 
+
+## Badges
+
+Before going further in the CI explanations, let's talk about badges. Badges, or shields allows a quick look to the status of a repository at a given moment. For example there is a badge that shows which licence the repository uses. 
+These badges can be found on [shields.io](https://shields.io/#/examples/license) or from other websites. For example, the project status is an interesting information for new users:  
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active).
+
+The badges are often integrated in the head of the README file, and are used as a summary of your repository status. The CI external tools make an extensive use of the badges to communicate their results. 
+
+
+## CI
+
+[Travis CI](https://travis-ci.org/) and [AppVeyor](https://ci.appveyor.com) are two well-known external tools for CI. The first one is used to test the package for Linux-based systems, and the second one for windows.
+To set up automatic tests online, you need to link the repository to these services (only for project admins), and to add a configuration file for each one.
+
+First, add the configuration files to the repository:
+
+```{r, eval=FALSE}
+usethis::use_travis()
+usethis::use_appveyor()
+```
+
+The first command creates a `.travis.yml` file in the project root, and the second one the `appveyor.yml`. These files are configuration files for each service. 
+Each command execution gives you a link that you can copy and paste in your `README.md` file such as on this README. This link will add a badge that indicates the status of the build on each service. For example here is the badge comming from TRAVIS-CI for the sandbox package:
+
+[![Travis build status](https://travis-ci.org/SticsRPacks/sandbox.svg?branch=master)](https://travis-ci.org/SticsRPacks/sandbox). 
+
+If you have the rights, then you can go to the services to set up the CI as described below. 
+
+### Travis-CI
+
+Go to [Travis CI](https://travis-ci.org/), sign in with your github account, go to your repositories [here](https://travis-ci.org/account/repositories), choose the `SticsRPacks` organization, and activate the repository. 
+
+### AppVeyor
+
+Go to [AppVeyor](https://ci.appveyor.com), sign in with your github account, and choose the repository [here](https://ci.appveyor.com/projects/new).
+
+
+## Code coverage
+
+The code coverage is a statistic that express how many functions are tested in a project. This is very useful to control the code quality of a repository at a glance. 
+To set up code coverage, you can use the service from [codecov.io](https://codecov.io/), and set it up like the CIs.
+
+First, install the `covr` package:
+
+```{r, eval=FALSE}
+install.packages("covr")
+```
+
+And set the configuration file:
+```{r, eval=FALSE}
+usethis::use_coverage()
+```
+
+And then, you'll have to add a line of code on the Travis-CI configuration file to make Travis-CI build the report of coverage. Please modify your `.travis.yml` file such as: 
+
+```YAML
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: false
+cache: packages
+r_github_packages:
+  - r-lib/covr
+after_success:
+  - Rscript -e 'covr::codecov()'
+```
+
+You can add the badge to your README, such as:
+
+[![Coverage status](https://codecov.io/gh/SticsRPacks/sandbox/branch/master/graph/badge.svg)](https://codecov.io/github/SticsRPacks/sandbox?branch=master).
+
+Finally, go to [codecov.io](https://codecov.io/), log in with your github account, and activate the repository.
+
+## Licence
+
+As stated in the vignette [Make a package](make-a-package.html), the easier way to set a licence to your project is by using the functions from `usethis`, *e.g.*: 
+```{r, eval=FALSE}
+usethis::use_gpl3_license(name = "STICS Group")
+```
+
+It will create the licence file, add it to the `DESCRIPTION` file of your package, and add it to `.Rbuildignore`. 
+
+You can also add a licence badge to your project so people can quickly see which one it is using. [shields.io](https://shields.io/category/license) is a good platform to find a badge for your license. For exemple, the GPL-3 license can be added using this code in your markdown file:
+
+```markdown
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+```
+
+Which yield: 
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
+
+## Previous tutorials
+
+1. [R package from scracth ](make-a-package.html).  
+1. [use GIT and GITHUB](use-git-and-github.html).  

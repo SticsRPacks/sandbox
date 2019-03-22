@@ -53,6 +53,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/continuous-integration.html">Continuous integration - CI</a>
+    </li>
+    <li>
       <a href="../articles/make-a-package.html">Make an R package</a>
     </li>
     <li>
@@ -76,7 +79,7 @@
       <h1>Use Git and Github</h1>
                         <h4 class="author">R. Vezy</h4>
             
-            <h4 class="date">2019-03-21</h4>
+            <h4 class="date">2019-03-22</h4>
       
       
       <div class="hidden name"><code>use-git-and-github.Rmd</code></div>
@@ -93,6 +96,17 @@
 <a href="#introduction-to-git" class="anchor"></a>Introduction to GIT</h3>
 <p>GIT is a software designed for efficient version control. It helps you and your collaborators develop better softwares. With GIT, you can save “snapshots” of your work at any moment, and return to a previous state whenever you want. GIT has much more to offer, but this is out of the scope of this introduction.</p>
 <p>A good way to learn the few main commands of GIT is by completing at leats the first 3 exercices from <a href="https://learngitbranching.js.org/">learngitbranching</a>. These few exercices will show you very quickly how to use these commands, and when to use them.</p>
+<p>Further informations can be found in <a href="http://r-pkgs.had.co.nz/git.html">the book of Hadley Wickham</a>. It explains well the basis of GIT in conjunction with R. There are also several tutorials on the internet for begginers:</p>
+<ul>
+<li>
+<a href="https://learngitbranching.js.org/">learngitbranching</a> as stated before</li>
+<li><a href="https://nic-hartley.github.io/git-gud">Git Gud, web based simulator</a></li>
+<li><a href="https://eu.udacity.com/course/how-to-use-git-and-github--ud775#?autoenroll=true">Udacity free MOOC</a></li>
+<li><a href="https://lab.github.com/">Github tutorial</a></li>
+<li>
+<a href="https://openclassrooms.com/fr/courses/2342361-gerez-votre-code-avec-git-et-github">openclassrooms course</a> (in french only).</li>
+</ul>
+<p>A good way to start is also to read the <a href="https://git-scm.com/book/en/v2">GIT book</a>, that is made for everybody from beginners to advanced users. It is especially usefull if you have an e-reader.</p>
 </div>
 <div id="add-git-versionning-to-your-package" class="section level3">
 <h3 class="hasAnchor">
@@ -106,7 +120,7 @@
 <a href="#use-github-desktop" class="anchor"></a>Use GITHUB DESKTOP</h3>
 <p>Open GITHUB Desktop, enter your Github.com credentials, and do <code>ctrl+O</code> to add your R package. Once done, try to add or modify some code. The new code appears in Github desktop as green if added, and red if deleted. Now you can commit your changes to save them:</p>
 <div class="figure">
-<img src="../www/6-commit_and_puch.gif" alt="Commit and push"><p class="caption">Commit and push</p>
+<img src="www/6-commit_and_puch.gif" alt="Commit and push"><p class="caption">Commit and push</p>
 </div>
 </div>
 <div id="publish-your-git-repo-to-github-com" class="section level3">
@@ -149,7 +163,7 @@ To authorize github pages, go to the project page on the repository, then go to 
 <p>To make modifications to the code, you <strong>must</strong> first create your own branch using Github desktop. It is strongly recommended to name the branch after the feature it is supposed to add. If several people work on the same feature, they have to create a branch for the feature that will be common for them, and after create their own branch that will feed this one.</p>
 <p>You can also make a new branch for each independent feature you want to use, because branches are the core feature of GIT (<em>i.e.</em> they are optimized to not take too much disk space). To create a new branch, simply follow the steps showed below:</p>
 <div class="figure">
-<img src="../www/new_branch/1-new_branch.gif" alt="New branch"><p class="caption">New branch</p>
+<img src="www/new_branch/1-new_branch.gif" alt="New branch"><p class="caption">New branch</p>
 </div>
 <p>Make a new branch using Github desktop, use the name you want, and make sure your are working on this branch.</p>
 </div>
@@ -164,7 +178,7 @@ To authorize github pages, go to the project page on the repository, then go to 
 <p>Each time you modify the package, you should commit your changes to GIT. It is good practice to commit whenever a little step has been reached so the commit message is short enough but still explains everything you did. This methodology make more commits, but is still preferred because it is easier to find changes in the history earlier. So do not hesitates to split your work into little commits.</p>
 <p>To commit your changes, open <code>Github desktop</code> and choose the repository. The files that were modified in the repository appear in the left-most window, and the associated code that was added or removed should appear in the window on the right. The code in green was added, and the code in red was removed. To commit those changes, enter a commit message in the left window next to your account image, where it is written <code><a href="https://www.rdocumentation.org/packages/base/topics/groupGeneric">Summary (required)</a></code>. The message should be concise but should describe all the changes. Then press <code>Commit to master</code>. Your changes are commited to the master branch and saved on your computer.</p>
 <div class="figure">
-<img src="../www/new_branch/3-commit_add_tests_add_x.gif" alt="Commit"><p class="caption">Commit</p>
+<img src="www/new_branch/3-commit_add_tests_add_x.gif" alt="Commit"><p class="caption">Commit</p>
 </div>
 </div>
 <div id="push" class="section level3">
@@ -173,7 +187,7 @@ To authorize github pages, go to the project page on the repository, then go to 
 <p>Whenever your work is done, or you go for lunch, you should push all your commits to github.com. To do so, just press the <code>Push origin</code> button in the center or in the upper window. Github desktop will send the changes to github.com, and they should appear in the repository.</p>
 <p>If you just created your branch, you have to publish it Github.com before:</p>
 <div class="figure">
-<img src="../www/new_branch/4-publish_branch.gif" alt="Publish branch"><p class="caption">Publish branch</p>
+<img src="www/new_branch/4-publish_branch.gif" alt="Publish branch"><p class="caption">Publish branch</p>
 </div>
 </div>
 <div id="merge-your-changes" class="section level3">
@@ -189,7 +203,7 @@ Well, there are two ways:<br>
 <h3 class="hasAnchor">
 <a href="#pull-request" class="anchor"></a>Pull request</h3>
 <p>Whenever you finished the modifications you wanted to do with your branch, you can make a pull request. This is a way of asking other contributors for their approval of the changes you made before merging your code to the <code>master</code> branch:</p>
-<p><img src="../www/new_branch/5.1-pull_request.gif"></p>
+<p><img src="www/new_branch/5.1-pull_request.gif"></p>
 <p>You’ll have several steps to complete after:</p>
 <ul>
 <li>give a general title to your pull request, for example here it is named after the last commit: “Test if x is numeric in add_x”<br>
@@ -200,7 +214,7 @@ Well, there are two ways:<br>
 <li>assign a reviewer</li>
 </ul>
 <div class="figure">
-<img src="../www/new_branch/5.2-ask_reviewer.gif" alt="Ask review"><p class="caption">Ask review</p>
+<img src="www/new_branch/5.2-ask_reviewer.gif" alt="Ask review"><p class="caption">Ask review</p>
 </div>
 <ul>
 <li>and finally create the pull request.</li>
@@ -211,13 +225,13 @@ Well, there are two ways:<br>
 <a href="#review" class="anchor"></a>Review</h3>
 <p>Now that everybody has pushed his/her changes, the code has to be reviewed. As a reviewer, you’ll have to open the pull request (in the Pull requests tab), and review the code in the “Files changed” sub-tab:</p>
 <div class="figure">
-<img src="../www/new_branch/5.3-review.gif" alt="Review"><p class="caption">Review</p>
+<img src="www/new_branch/5.3-review.gif" alt="Review"><p class="caption">Review</p>
 </div>
 <p>If there are some changes needed before merging the code to the <code>master</code> branch, you can leave a comment (and even propose some code) right where the changes are needed.</p>
 <p>Then, the person that did pull the request will have to integrate those proposed changes into its own branch, commit the changes, and update the pull request.</p>
-<p>Then, the reviewer will review the code again, and can finally accept the pull request: <img src="../www/new_branch/5.4-accept.gif" alt="Accept pull request"> When the pull request is accepted, it can finally be merged into the <code>master</code> branch:</p>
+<p>Then, the reviewer will review the code again, and can finally accept the pull request: <img src="www/new_branch/5.4-accept.gif" alt="Accept pull request"> When the pull request is accepted, it can finally be merged into the <code>master</code> branch:</p>
 <div class="figure">
-<img src="../www/new_branch/5.5-merge.gif" alt="Merge"><p class="caption">Merge</p>
+<img src="www/new_branch/5.5-merge.gif" alt="Merge"><p class="caption">Merge</p>
 </div>
 <p>This step will add all the commits from the branch to the <code>master</code> branch. A cleaner option is to use the <code>Squash and merge</code> option, which will combine all commits from the branch into one commit only. This option may be cleaner to avoid too many unnecessary commits in the master branch.<br>
 It is recommended to delete the branch after merging it to make a cleaner repository.</p>
@@ -228,7 +242,7 @@ It is recommended to delete the branch after merging it to make a cleaner reposi
 <a href="#update" class="anchor"></a>Update</h3>
 <p>Once the merge is done, all users can update their local repository with the new code. If the branch was deleted from Github.com, it will still remain on the local copy of the user, so you will have to delete it manually using Github desktop:</p>
 <div class="figure">
-<img src="../www/new_branch/5.6-update_repo.gif" alt="Update repository"><p class="caption">Update repository</p>
+<img src="www/new_branch/5.6-update_repo.gif" alt="Update repository"><p class="caption">Update repository</p>
 </div>
 </div>
 <div id="conflicts" class="section level3">
@@ -237,22 +251,39 @@ It is recommended to delete the branch after merging it to make a cleaner reposi
 <p>A pull request may modify some code that was also modified by another user that pulled his changes before you in the <code>master</code> branch. In that case, GIT cannot know which code is the right one, or if there is a need of more code to integrate both changes, so a manual choice has to be made.</p>
 <p>Here is an example of a conflict in two steps:</p>
 <ul>
-<li><p>Making different modifications on two different branches: <img src="../www/conflicts/1-create_merge_conflict.gif" alt="Merge conflict"></p></li>
+<li><p>Making different modifications on two different branches: <img src="www/conflicts/1-create_merge_conflict.gif" alt="Merge conflict"></p></li>
 <li><p>Trying to merge the branches and resolving the conflicts using Atom:</p></li>
 </ul>
 <div class="figure">
-<img src="../www/conflicts/2-merge_conflict.gif" alt="Resolve conflict"><p class="caption">Resolve conflict</p>
+<img src="www/conflicts/2-merge_conflict.gif" alt="Resolve conflict"><p class="caption">Resolve conflict</p>
 </div>
 <p>This is an example made on the local repository, but a pull request would yield the same result.</p>
 <p>Here is an example with a pull request from a branch:</p>
 <div class="figure">
-<img src="../www/conflicts/3-pull_request_conflict.gif" alt="Resolve pull request conflict"><p class="caption">Resolve pull request conflict</p>
+<img src="www/conflicts/3-pull_request_conflict.gif" alt="Resolve pull request conflict"><p class="caption">Resolve pull request conflict</p>
 </div>
 <p>As you can see, this pull request cannot be automatically merged, so you have to resolve the conflicts from your computer, or you can even use the web editor if you prefer:</p>
 <div class="figure">
-<img src="../www/conflicts/4-pull_request_conflict_merge.gif" alt="Merge pull request after resolved conflict"><p class="caption">Merge pull request after resolved conflict</p>
+<img src="www/conflicts/4-pull_request_conflict_merge.gif" alt="Merge pull request after resolved conflict"><p class="caption">Merge pull request after resolved conflict</p>
 </div>
 </div>
+</div>
+<div id="install-from-github" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install-from-github" class="anchor"></a>Install from Github</h2>
+<p>New users can install the package directly from the Github repository using this command line:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># install.packages("remotes")</span></a>
+<a class="sourceLine" id="cb3-2" title="2">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"SticsRPacks/sandbox"</span>)</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co"># Or using devtools if already installed:</span></a>
+<a class="sourceLine" id="cb3-4" title="4">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"SticsRPacks/sandbox"</span>)</a></code></pre></div>
+<p>It will download the code from the master branch (or other if provided) and build the package from source (build tools needed).</p>
+<p><img src="www/9-install_from_gitub.gif"></p>
+</div>
+<div id="learn-about-continuous-integration" class="section level2">
+<h2 class="hasAnchor">
+<a href="#learn-about-continuous-integration" class="anchor"></a>Learn about continuous integration</h2>
+<p>Go to the next tutorial: <a href="docs/articles/continuous-integration.html">continuous integration</a>.<br>
+Or go to the previous tutorial: <a href="make-a-package.html">R package from scracth</a>.</p>
 </div>
   </div>
 
@@ -263,6 +294,8 @@ It is recommended to delete the branch after merging it to make a cleaner reposi
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#personal-git-and-github">Personal GIT and GITHUB</a></li>
       <li><a href="#shared-github-projects">Shared GITHUB projects</a></li>
+      <li><a href="#install-from-github">Install from Github</a></li>
+      <li><a href="#learn-about-continuous-integration">Learn about continuous integration</a></li>
       </ul>
 </div>
       </div>

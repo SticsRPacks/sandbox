@@ -4,7 +4,7 @@ author: "R. Vezy"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Make an R package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -24,10 +24,10 @@ This tutorial was set up to learn as quickly as possible the basis of R packages
 Some tools must be installed before starting this tutorial:
 
 *	GIT : https://git-scm.com/
-*	Github desktop (Windows and Mac : https://desktop.github.com/, Linux: https://github.com/shiftkey/desktop/releases) 
-*	R: https://cloud.r-project.org/ 
+*	Github desktop (Windows and Mac : https://desktop.github.com/, Linux: https://github.com/shiftkey/desktop/releases)
+*	R: https://cloud.r-project.org/
 *	Rstudio: https://www.rstudio.com/
-*	Tools to build R packages: 
+*	Tools to build R packages:
     +	Rtools for Windows users: https://cran.r-project.org/bin/windows/Rtools/
     +	XCode for Mac users (depuis l’AppStore)
     +	r-base-dev for linux users
@@ -67,12 +67,14 @@ The function creates an R package with all mandatory files, and open the project
 
 ### DESCRIPTION file + LICENCE
 
-A first step is to fill the `DESCRIPTION` file. Open it and adapt it to your use. Then, choose a licence to use for your project. If you don't know which one to use, [choosealicense](https://choosealicense.com/) can help you. 
-In general, it is good practice to have a LICENSE file that describes it. To do so, use the commands from `usethis`. For example to set the LICENSE to GPL-3, execute this command:
+A first step is to fill the `DESCRIPTION` file. Open it and adapt it to your use. Then, choose a licence to use for your project. If you don't know which one to use, [choosealicense](https://choosealicense.com/) can help you.
+In general, it is good practice to have a LICENSE file that describes it. The easiest way is to use the dedicated functions from `usethis`. There are four licences available from this package: MIT, GPL3, APL2 and CC0. To set the LICENSE to GPL-3, execute this command:
 
 ```{r, eval=FALSE}
 usethis::use_gpl3_license(name = "your name goes here")
 ```
+
+It will create the licence file, add it to the `DESCRIPTION` file of your package, and add it to `.Rbuildignore`.
 
 ### Add a README
 
@@ -86,7 +88,7 @@ usethis::use_readme_rmd()
 
 This function will create a pre-formatted README.Rmd file. Try to update it a little bit, and then knit it to make the README.md file.
 
-Rmarkdown is a document written in markdown that can integrate some R code. The R code can be displayed to the users, executed, and its output displayed if necessary. In fact this very document is written in Rmarkdown. 
+Rmarkdown is a document written in markdown that can integrate some R code. The R code can be displayed to the users, executed, and its output displayed if necessary. In fact this very document is written in Rmarkdown.
 
 If you don't know how to write a Rmarkdown file, there is a nice [cheat sheet by RStudio](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf). In few words, here are some basics synthax used in markdown:
 
@@ -97,7 +99,7 @@ If you don't know how to write a Rmarkdown file, there is a nice [cheat sheet by
 * Images are included by a link to their location
     * on the web: `![](www.link_to_the_image.png)`  
     * on your computer: `![](www/image.png)`
-    
+
 * Bold is written using two `**` as this: `**here is a bold sentence**`
 
 * Italic is using one `*`: `here is a sentence in italic`
@@ -123,7 +125,7 @@ usethis::use_r(name = "div_x")
 
 This function just creates an R script called "div_x". You can do it manually also if you prefer:
 
-![New function](../www/2-new_function.gif)
+![New function](www/2-new_function.gif)  
 
 Each function should be in its own separate file. If some functions are highly related, you can group them into the same file though.
 
@@ -139,19 +141,19 @@ This is a simple function that divides x by y.
 
 ### Document
 
-It is **mandatory** to add documentation to all functions you create in a package. Fortunately, there is a tool for that too. This tool is called Roxygen2, and uses special formatted code to build documentation. 
+It is **mandatory** to add documentation to all functions you create in a package. Fortunately, there is a tool for that too. This tool is called Roxygen2, and uses special formatted code to build documentation.
 
 To add some documentation to your function, place your cursor into the function, click on the magic wand just above your script and choose Insert Roxygen Skeleton, or press ctrl+shift+alt+R. This will create a dummy Roxygen documentation above your function using the arguments of your function.
 
-![Add roxygen](../www/3-add_roxygen.gif)
+![Add roxygen](www/3-add_roxygen.gif)  
 
 Your function should look like this now:
 
 ```{r eval=FALSE}
 #' Title
 #'
-#' @param x 
-#' @param y 
+#' @param x
+#' @param y
 #'
 #' @return
 #' @export
@@ -162,7 +164,7 @@ div_x= function(x,y){
 }
 ```
 
-Fill the documentation, and add some new keywords such as a description: 
+Fill the documentation, and add some new keywords such as a description:
 ```{r eval=FALSE}
 #' Divide
 #'
@@ -192,11 +194,16 @@ Here are some more details about roxygen2:
 
 * All the [keywords](https://cran.r-project.org/web/packages/roxygen2/vignettes/rdkeywords.html)  
 
-* And how to use markdown instead of roxygen keywords [here](https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html)  
+* And how to use markdown instead of roxygen keywords [here](https://cran.r-project.org/web/packages/roxygen2/vignettes/markdown.html). This option is particularly interesting because it is easier to write markdown than roxygen2. To allow markdown in roxygen2, execute this function:
+    ```{r, eval=FALSE}
+    # install.packages("roxygen2md")
+    usethis::use_roxygen_md()
+    ```
 
-Then re-build your documentation (`ctrl+shift+D`), and re-build your package (`ctrl+shift+B`). 
 
-![Document and build](../www/4-document_and_build.gif)
+Then re-build your documentation (`ctrl+shift+D`), and re-build your package (`ctrl+shift+B`).
+
+![Document and build](www/4-document_and_build.gif)  
 
 You should have access to your own function help page:
 ```{r, eval= FALSE}
@@ -212,7 +219,7 @@ After writing a new function or modifying one, it is important to test it. This 
 When coding a function, you should always test if each line of code in your function is returning the expected result, and if the function returns the correct output after execution.  
 It is good practice to maintain your R package as light as possible by keeping the data outside of it whenever possible. Creating an independent R project for tests helps you to keep the external data or executables and the created outputs outside of the package project. To do so, you can create a separate Rstudio project where you will test your package: go to `File`>`New Project`>`New Directory`>`New Project`, type your project name and choose where it will be located on your computer. The project name is usually taken as the R package name followed by "test", such as `SticsOnR_test`. This step is not mandatory but strongly advised.  
 
-After creating the new project, add a new R script (`ctrl+shift+N`), load your R package such as: 
+After creating the new project, add a new R script (`ctrl+shift+N`), load your R package such as:
 
 ```{r eval=FALSE}
 library(SticsOnR)
@@ -232,15 +239,15 @@ To add unit tests to our example function (or to a set of functions), run this c
 usethis::use_test("div_x")
 ```
 
-![Add tests](../www/7-add_tests.gif)
+![Add tests](www/7-add_tests.gif)  
 
-If you add tests on your package for the first time, the `usethis::use_test()` command will create all the infrastructure you need, if not, it will just create a new test script to your tests. 
+If you add tests on your package for the first time, the `usethis::use_test()` command will create all the infrastructure you need, if not, it will just create a new test script to your tests.
 
 Now a new folder appeared in our project: `tests`, which contains two things:
 
 * A subfolder called `testthat` that contains all tests scripts you created.
 
-* An R script called `testthat.R`. This script will call all tests in the R scripts located in `testthat`. Do not mind this script, you will probably never have to modify it. 
+* An R script called `testthat.R`. This script will call all tests in the R scripts located in `testthat`. Do not mind this script, you will probably never have to modify it.
 
 If you executed the previous command, you should have a unit test script called `test-add.R` in this directory with the following code:
 
@@ -262,9 +269,9 @@ test_that("add_x returns right output", {
 })
 ```
 
-This code tests that `div_x(1,2)` returns `0.5`. To run the test, go to the `Build` tab, and choose `Test Package`, or press `ctrl+shift+T`. The tests will all be executed, and a report will appear on the `Build` tab at the end, showing which tests were successfull, and which failed or returned warnings. 
+This code tests that `div_x(1,2)` returns `0.5`. To run the test, go to the `Build` tab, and choose `Test Package`, or press `ctrl+shift+T`. The tests will all be executed, and a report will appear on the `Build` tab at the end, showing which tests were successfull, and which failed or returned warnings.
 
-![](../www/7-run_tests.gif)
+![](www/7-run_tests.gif)  
 
 
 You should add different tests for each of your functions, to check if they work correctly, and if they handle errors properly.
@@ -274,10 +281,10 @@ More details about unit tests with `testthat` are given [here](http://r-pkgs.had
 
 ### CRAN tests
 
-The `devtools` package that you installed previously adds also the tests that CRAN do on all packages. These tests consists on checking that all mandatory files are present, that functions are well documented, etc... 
-It is very important to check the package regularly for errors so the users can download a functionning package. To start a CRAN check, go to the `Build` tab, press the `More` button, and choose `Check Package`, or simply use `ctrl+shift+E`. The package will be checked, and a report will be given at the end. 
+The `devtools` package that you installed previously adds also the tests that CRAN do on all packages. These tests consists on checking that all mandatory files are present, that functions are well documented, etc...
+It is very important to check the package regularly for errors so the users can download a functionning package. To start a CRAN check, go to the `Build` tab, press the `More` button, and choose `Check Package`, or simply use `ctrl+shift+E`. The package will be checked, and a report will be given at the end.
 
-![CRAN checks](../www/8-run_CRAN_checks.gif)
+![CRAN checks](www/8-run_CRAN_checks.gif)  
 
 ## Make a website  
 
@@ -289,10 +296,10 @@ To set up the website, simply execute the following code each time you update th
 pkgdown::build_site()
 ```
 
-![](../www/5-build_site.gif)
+![](www/5-build_site.gif)  
 
-When first called, the function creates a new folder called `docs` where it puts all the `html` files for the website. 
+When first called, the function creates a new folder called `docs` where it puts all the `html` files for the website.
 
 ## Learn GIT + Github
 
-Go to the [next vignette](GIT_and_GITHUB.html).
+Go to the next tutorial [use GIT and GITHUB](use-git-and-github.html).
