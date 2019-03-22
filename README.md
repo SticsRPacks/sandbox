@@ -29,11 +29,12 @@ support for learning. There are three main steps to follow, all written
 as vignettes:
 
   - How to make an [R package from
-    scracth](docs/articles/make-a-package.html)  
-  - How to [use GIT and GITHUB](docs/articles/use-git-and-github.html)  
+    scracth](https://sticsrpacks.github.io/sandbox/articles/make-a-package.html)  
+  - How to [use GIT and
+    GITHUB](https://sticsrpacks.github.io/sandbox/articles/use-git-and-github.html)  
   - What is [continuous
-    integration](docs/articles/continuous-integration.html) and how to
-    use it
+    integration](https://sticsrpacks.github.io/sandbox/articles/continuous-integration.html)
+    and how to use it
 
 You should follow these steps in order to start learning all about R
 package development.
