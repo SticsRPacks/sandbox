@@ -18,4 +18,4 @@ Suggests:
     rmarkdown
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
-BuildVignettes: false
+
